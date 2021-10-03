@@ -197,3 +197,28 @@ body {
     background-color: #000000;
     color: #ffffff;
 }
+#footer-page {
+    background-color: #000000;
+    color: #ffffff;
+}
+#back-to-top {
+    padding: 20px;
+    text-align: center;
+}
+#back-a {
+    text-decoration: none;
+    color: #ffffff
+}
+#ul-div {
+    flex-direction: row;
+    display: flex;
+    left: 0;
+}
+.footer-list {
+    margin: 0 auto;
+    padding: 0px 20px;
+    list-style: none;
+}
+.footer-list li {
+    padding-bottom: 5px;
+}
