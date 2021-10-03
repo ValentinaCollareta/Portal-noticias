@@ -222,3 +222,35 @@ body {
 .footer-list li {
     padding-bottom: 5px;
 }
+#social-media {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    height: 100px;
+    margin: 20px auto;
+}
+#facebook {
+    width: 50px;
+    height: 50px;
+    background-image: url("../img/icon-facebook.png");
+    background-size: cover;
+}
+#instagram {
+    width: 50px;
+    height: 50px;
+    background-image: url("../img/icon-instagram.png");
+    background-size: cover;
+}
+#twitter {
+    width: 50px;
+    height: 50px;
+    background-image: url("../img/icon-twitter.png");
+    background-size: cover;
+}
+#linkedin {
+    width: 50px;
+    height: 50px;
+    background-image: url("../img/icon-linkedin.png");
+    background-size: cover;
+}
