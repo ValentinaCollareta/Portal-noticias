@@ -161,3 +161,39 @@ body {
     text-align: center;
     line-height: 90%;
 }
+#suscribe {
+    left: 0;
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+.ads {
+    width: 95%;
+    height: 100px;
+    margin: auto;
+    margin-top: 5px;
+    background-image: url("../img/banner-ads.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#suscribe h2 {
+    font-family: "Scheherazade New", sans-serif, 'Times New Roman', Times, serif;
+    font-size: 1.45em;
+    line-height: 90%;
+}
+#suscribe-input {
+    width: 40%;
+    padding: 5px;
+    border: 1px solid #000000;
+    border-style: none;
+    outline: none;
+}
+#send {
+    margin-bottom: 5px;
+    padding: 6px;
+    border-style: none;
+    background-color: #000000;
+    color: #ffffff;
+}

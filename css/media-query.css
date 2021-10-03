@@ -34,6 +34,10 @@
         height: 600px;
         background-position: center;
     }
+    .ads {
+        height: 200px;
+        background-position: center;
+    }
 }
 @media only screen and (min-width: 992px) {
     /* For desktops: */
@@ -63,5 +67,8 @@
         flex-direction: column;
         height: 100%;
         overflow: scroll;
+    }
+    #suscribe {
+        margin-top: 20%;
     }
 }
