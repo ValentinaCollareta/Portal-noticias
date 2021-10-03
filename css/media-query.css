@@ -18,6 +18,17 @@
     #nav-icon {
         display: none;
     }
+    #main-content {
+        margin-top: 10%;
+    }
+    #main-article {
+        display: flex;
+        justify-content: space-around;
+    }
+    #topic {
+        position: absolute;
+        left: 0;
+    }
 }
 @media only screen and (min-width: 992px) {
     /* For desktops: */
@@ -27,5 +38,13 @@
     }
     #search, #logo, #navbar-full a {
         padding: 30px;
+    }
+    #main-div {
+        flex-direction: row;
+        display: flex;
+        height: 100vh;
+    }
+    #topic h3, #trending h3 {
+        font-size: 1em;
     }
 }

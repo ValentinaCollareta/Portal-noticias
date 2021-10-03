@@ -45,3 +45,45 @@ body {
 #navbar-full a:visited {
     color: #196F3D;
 }
+#main-content {
+    margin-top: 15%;
+}
+#main-article {
+    margin: 30px auto;
+    background-color: #ffffff;
+}
+#topic h3, #trending h3 {
+    margin: 0px;
+    padding-left: 15px;
+    background-color: #ffffff;
+    font-size: 0.70em;
+}
+#title {
+    flex-direction: column;
+    display: flex;
+    justify-content: end;
+    margin: 5%;
+    width: 85%;
+    height: 300px;
+    background-image: url("../img/home-01.jpg");
+    background-size: cover;
+    text-shadow: 1px 1px 2px black;
+    color: white;
+}
+#title h3 {
+    margin: 0;
+    padding: 0px 10px;
+    font-size: 0.625em;
+}
+#title h1 {
+    margin: 0;
+    padding: 0px 10px;
+    font-family: "Scheherazade New", sans-serif, 'Times New Roman', Times, serif;
+    font-size: 2em;
+    line-height: 90%;
+}
+#title h2 {
+    margin: 0;
+    padding: 0px 10px 10px 10px;
+    font-size: 0.75em;
+}
