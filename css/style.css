@@ -13,8 +13,15 @@ body {
     height: 50px;
     margin: auto;
     background-color: #ffffff;
+    box-shadow: 1px 1px #00000054;
+}
+#logo-search {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
 }
 #logo {
+    left: 0;
     width: 60%;
     margin: 10px;
 }
@@ -31,11 +38,13 @@ body {
     flex-direction: row;
     display: flex;
     align-content: flex-end;
+    justify-content: space-around;
     margin: 20px 0px;
     font-family: 'Montserrat', sans-serif, Arial, Helvetica;
     font-size: 1em;
 }
 #navbar-full a {
+    padding: 0px 10px;
     text-decoration: none;
     color: #196F3D;
 }
@@ -141,6 +150,7 @@ body {
 #trending-news {
     flex-direction: row;
     display: flex;
+    align-items: flex-start;
     margin: auto;
     padding: 20px;
     overflow: scroll;
@@ -156,7 +166,7 @@ body {
     border: 1px solid #000000;
 }
 .trending-h2 {
-    width: 200px;
+    width: 100%;
     font-family: "Scheherazade New", sans-serif, 'Times New Roman', Times, serif;
     font-size: 1.45em;
     text-align: center;
@@ -230,27 +240,28 @@ body {
     height: 100px;
     margin: 20px auto;
 }
+/* ver sin adblock activado */
 #facebook {
     width: 50px;
     height: 50px;
-    background-image: url("./img/icon-facebook.png");
+    background-image: url("../img/icon-facebook.png");
     background-size: cover;
 }
 #instagram {
     width: 50px;
     height: 50px;
-    background-image: url("./img/icon-instagram.png");
+    background-image: url("../img/icon-instagram.png");
     background-size: cover;
 }
 #twitter {
     width: 50px;
     height: 50px;
-    background-image: url("./img/icon-twitter.png");
+    background-image: url("../img/icon-twitter.png");
     background-size: cover;
 }
 #linkedin {
     width: 50px;
     height: 50px;
-    background-image: url("./img/icon-linkedin.png");
+    background-image: url("../img/icon-linkedin.png");
     background-size: cover;
 }
