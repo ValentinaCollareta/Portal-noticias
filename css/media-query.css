@@ -55,4 +55,13 @@
     .notice-p {
         font-size: 1em;
     }
+    #trending {
+        margin: 30px auto;
+    }
+    #trending-news {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow: scroll;
+    }
 }

@@ -45,6 +45,10 @@ body {
 #navbar-full a:visited {
     color: #196F3D;
 }
+#navbar-full a:visited:hover {
+    background-color: #196F3D;
+    color: #ffffff;
+}
 #help {
     cursor: help;
 }
@@ -127,4 +131,33 @@ body {
     text-decoration: none;
     line-height: 90%;
     color: #ffffff;
+}
+#trending {
+    left: 0;
+    width: 100%;
+    margin: auto;
+}
+#trending-news {
+    flex-direction: row;
+    display: flex;
+    margin: auto;
+    padding: 20px;
+    overflow: scroll;
+}
+.trending-divs {
+    flex-direction: column;
+    display: flex;
+    margin: 20px;
+}
+.trending-divs img {
+    width: 200px;
+    margin: auto;
+    border: 1px solid #000000;
+}
+.trending-h2 {
+    width: 200px;
+    font-family: "Scheherazade New", sans-serif, 'Times New Roman', Times, serif;
+    font-size: 1.45em;
+    text-align: center;
+    line-height: 90%;
 }
