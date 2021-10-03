@@ -1,7 +1,6 @@
 @media only screen and (max-width: 768px) {
     #navbar-full {
         display: none;
-        justify-content: space-around;
     }
 }
 @media only screen and (min-width: 768px) {
