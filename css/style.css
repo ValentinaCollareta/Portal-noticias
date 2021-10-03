@@ -4,3 +4,44 @@ body {
     padding: 0;
     font-family: 'Montserrat', sans-serif, Arial, Helvetica;
 }
+#header-nav {
+    flex-direction: row;
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    margin: auto;
+    background-color: #ffffff;
+}
+#logo {
+    width: 60%;
+    margin: 10px;
+}
+#search {
+    width: 100px;
+}
+#search-icon {
+    margin: 10px 0px;
+}
+#nav-icon {
+    margin: 10px 10px 0px 0px;
+}
+#navbar-full {
+    flex-direction: row;
+    display: flex;
+    align-content: flex-end;
+    margin: 20px 0px;
+    font-family: 'Montserrat', sans-serif, Arial, Helvetica;
+    font-size: 1em;
+}
+#navbar-full a {
+    text-decoration: none;
+}
+#navbar-full a:hover {
+    background-color: #196F3D;
+    color: #ffffff;
+}
+#navbar-full a:visited {
+    color: #196F3D;
+}
