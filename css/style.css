@@ -118,6 +118,7 @@ body {
     border-radius: 10px;
     border-style: none;
     background-color: #000000;
+    text-align: center;
     color: #ffffff;
     cursor: pointer;
 }
