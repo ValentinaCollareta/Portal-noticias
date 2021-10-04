@@ -121,6 +121,10 @@ body {
     color: #ffffff;
     cursor: pointer;
 }
+#read-more a {
+    text-decoration: none;
+    color: #ffffff;
+}
 #post-by {
     flex-direction: column;
     max-width: 100px;
