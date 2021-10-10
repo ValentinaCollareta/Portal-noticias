@@ -36,7 +36,7 @@ body {
 }
 #navbar-full {
     flex-direction: row;
-    display: flex;
+    display: none;
     align-content: flex-end;
     justify-content: space-around;
     margin: 20px 0px;
