@@ -2,7 +2,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif, Arial, Helvetica;
+    font-family: 'Montserrat', sans-serif;
 }
 #header-nav {
     flex-direction: row;
@@ -40,7 +40,7 @@ body {
     align-content: flex-end;
     justify-content: space-around;
     margin: 20px 0px;
-    font-family: 'Montserrat', sans-serif, Arial, Helvetica;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1em;
 }
 #navbar-full a {
@@ -95,7 +95,7 @@ body {
 #title h1 {
     margin: 0;
     padding: 0px 10px;
-    font-family: "Scheherazade New", sans-serif, 'Times New Roman', Times, serif;
+    font-family: "Scheherazade New", sans-serif;
     font-size: 2em;
     line-height: 90%;
 }
@@ -141,7 +141,7 @@ body {
     background-color: #ffffff;
 }
 #post-by-a {
-    font-family: "Scheherazade New", sans-serif, 'Times New Roman', Times, serif;
+    font-family: "Scheherazade New", sans-serif;
     font-size: 1em;
     text-decoration: none;
     line-height: 90%;
@@ -172,7 +172,7 @@ body {
 }
 .trending-h2 {
     width: 100%;
-    font-family: "Scheherazade New", sans-serif, 'Times New Roman', Times, serif;
+    font-family: "Scheherazade New", sans-serif;
     font-size: 1.45em;
     text-align: center;
     line-height: 90%;
@@ -195,7 +195,7 @@ body {
     background-size: cover;
 }
 #suscribe h2 {
-    font-family: "Scheherazade New", sans-serif, 'Times New Roman', Times, serif;
+    font-family: "Scheherazade New", sans-serif;
     font-size: 1.45em;
     line-height: 90%;
 }
