@@ -14,7 +14,7 @@
         font-size: 1em;
         margin: 20px 0px;
         display: flex;
-        font-family: 'Montserrat', sans-serif, Arial, Helvetica;
+        font-family: 'Montserrat', sans-serif;
     }
     #search-icon {
         display: none;
@@ -95,6 +95,6 @@
         font-size: 1em;
         margin: 50px 0px;
         display: flex;
-        font-family: 'Montserrat', sans-serif, Arial, Helvetica;
+        font-family: 'Montserrat', sans-serif;
     }
 }
