@@ -127,11 +127,21 @@ body {
     flex-wrap: wrap;
     display: flex;
     width: 100%;
+    margin: 0 auto;
 }
 .label-input-div {
     flex-direction: column;
     display: flex;
     width: 100%;
+    margin: 10px auto;
+}
+#button {
+    width: 100%;
+    margin: 20px auto 0px auto;
+    text-align: center;
+}
+#send {
+    width: 40%;
 }
 #read-more {
     width: 100%;
