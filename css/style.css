@@ -69,11 +69,14 @@ body {
     margin: 30px auto;
     background-color: #ffffff;
 }
-#topic h3, #trending h3 {
+#topic h3, #trending h3, #sus-topic {
     margin: 0px;
     padding-left: 15px;
     background-color: #ffffff;
     font-size: 0.70em;
+}
+#sus-topic {
+    margin-top: 55px;
 }
 #title {
     flex-direction: column;
