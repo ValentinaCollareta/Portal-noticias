@@ -115,6 +115,24 @@ body {
 .notice-p {
     font-size: 0.75em;
 }
+#form-div {
+    flex-direction: column;
+    display: flex;
+    width: 80%;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #C9ECD7;
+}
+#label-input-div {
+    flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+}
+.label-input-div {
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+}
 #read-more {
     width: 100%;
     padding: 4px 0px;
@@ -202,11 +220,14 @@ body {
     font-size: 1.45em;
     line-height: 90%;
 }
-.suscribe-input {
+#suscribe-input, .suscribe-input {
     width: 40%;
     padding: 5px;
     border: 1px solid #000000;
     outline: none;
+}
+.suscribe-input {
+    width: 90%;
 }
 #send {
     margin-bottom: 5px;
