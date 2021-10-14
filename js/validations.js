@@ -14,3 +14,18 @@ function invalidName() {
 function focusName() {
     validationName.innerHTML = '';
 }
+
+// Email
+var email = document.querySelector('input[id="email"]');
+var validationEmail = document.getElementById('validationEmail');
+email.addEventListener('blur', invalidEmail);
+email.addEventListener('focus', focusEmail);
+function invalidEmail() {
+    let input = email.value;
+    if (input.indexOf('@') == -1) {
+        validationEmail.innerHTML = 'Invalid email.';
+    }
+}
+function focusEmail() {
+    validationEmail.innerHTML = '';
+}
