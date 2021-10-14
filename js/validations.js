@@ -62,3 +62,21 @@ function invalidConfirm() {
 function focusConfirm() {
     validationConfirm.innerHTML = '';
 }
+
+// Age
+var age = document.querySelector('input[id="age"]');
+var validationAge = document.getElementById('validationAge');
+age.addEventListener('blur', invalidAge);
+age.addEventListener('focus', focusAge);
+function invalidAge() {
+    let input = parseFloat(age.value);
+    if (input < 18) {
+        validationAge.innerHTML = 'The Age must be greater or equal than 18.';
+    }
+    if (!Number.isInteger(input)) {
+        validationAge.innerHTML = 'The Age must be an integer number.';
+    }
+}
+function focusAge() {
+    validationAge.innerHTML = '';
+}
