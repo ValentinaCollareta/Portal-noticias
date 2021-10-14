@@ -80,3 +80,22 @@ function invalidAge() {
 function focusAge() {
     validationAge.innerHTML = '';
 }
+
+// Phone Number
+var phone = document.querySelector('input[id="phone"]');
+var validationPhone = document.getElementById('validationPhone');
+phone.addEventListener('blur', invalidPhone);
+phone.addEventListener('focus', focusPhone);
+function invalidPhone() {
+    let input = phone.value;
+    if (input.length < 7) {
+        validationPhone.innerHTML = 'The Phone must have at least 7 numbers.';
+    }
+    if (input.indexOf('-') != -1 || input.indexOf(' ') != -1 ||
+        input.indexOf('(') != -1 || input.indexOf(')') != -1) {
+        validationPhone.innerHTML = 'Only numbers are allowed.';
+    }
+}
+function focusPhone() {
+    validationPhone.innerHTML = '';
+}
