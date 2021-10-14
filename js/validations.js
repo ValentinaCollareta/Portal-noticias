@@ -99,3 +99,21 @@ function invalidPhone() {
 function focusPhone() {
     validationPhone.innerHTML = '';
 }
+
+// Adress
+var adress = document.querySelector('input[id="adress"]');
+var validationAdress = document.getElementById('validationAdress');
+adress.addEventListener('blur', invalidAdress);
+adress.addEventListener('focus', focusAdress);
+function invalidAdress() {
+    let input = adress.value;
+    if (input.length < 5) {
+        validationAdress.innerHTML = 'The Adress must have at least 5 characters.';
+    }
+    if (input.search(/[a-z]/i) < 0 || input.search(/[0-9]/) < 0 || input.indexOf(' ') == -1) {
+        validationAdress.innerHTML = 'The Adress must have letters, numbers and at least 1 space.';
+    }
+}
+function focusAdress() {
+    validationAdress.innerHTML = '';
+}
