@@ -47,3 +47,18 @@ function invalidPassword() {
 function focusPassword() {
     validationPassword.innerHTML = '';
 }
+
+// Confirm Password
+var confirmPassword = document.querySelector('input[id="confirm"]');
+var validationConfirm = document.getElementById('validationConfirm');
+confirmPassword.addEventListener('blur', invalidConfirm);
+confirmPassword.addEventListener('focus', focusConfirm);
+function invalidConfirm() {
+    let input = confirmPassword.value;
+    if (input != password.value) {
+        validationConfirm.innerHTML = 'The Passwords do not match.';
+    }
+}
+function focusConfirm() {
+    validationConfirm.innerHTML = '';
+}
