@@ -147,3 +147,20 @@ function invalidPostcode() {
 function focusPost() {
     validationPostcode.innerHTML = '';
 }
+
+// DNI
+var dni = document.querySelector('input[id="dni"]');
+var validationDni = document.getElementById('validationDni');
+dni.addEventListener('blur', invalidDni);
+dni.addEventListener('focus', focusDni);
+function invalidDni() {
+    let input = dni.value;
+    if (input.length >= 7 && input.length <=8) {
+        validationDni.innerHTML = '';
+    } else {
+        validationDni.innerHTML = 'The Dni must have 7 or 8 numbers.';
+    }
+}
+function focusDni() {
+    validationDni.innerHTML = '';
+}
