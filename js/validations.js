@@ -117,3 +117,18 @@ function invalidAdress() {
 function focusAdress() {
     validationAdress.innerHTML = '';
 }
+
+// City
+var city = document.querySelector('input[id="city"]');
+var validationCity = document.getElementById('validationCity');
+city.addEventListener('blur', invalidCity);
+city.addEventListener('focus', focusCity);
+function invalidCity() {
+    let input = city.value;
+    if (input.length < 3) {
+        validationCity.innerHTML = 'The City must have at least 3 characters.';
+    }
+}
+function focusCity() {
+    validationCity.innerHTML = '';
+}
