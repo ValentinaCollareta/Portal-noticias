@@ -22,7 +22,7 @@ email.addEventListener('blur', invalidEmail);
 email.addEventListener('focus', focusEmail);
 function invalidEmail() {
     let input = email.value;
-    if (input.indexOf('@') == -1) {
+    if (input.indexOf('@') == -1 || input.indexOf('.') == -1) {
         validationEmail.innerHTML = 'Invalid email.';
     }
 }
