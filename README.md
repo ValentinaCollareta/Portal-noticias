@@ -12,3 +12,6 @@
 4. Capability to understand the complexity of Javascript in Web design.
 
 #### The real notice is from https://www.theguardian.com/lifeandstyle/2021/sep/25/how-one-family-turned-a-derelict-garage-into-a-home // The other titles and images are from The Guardian too.
+
+## Weekly challenge 05
+- :star: Github Page: https://valentinacollareta.github.io/Portal-noticias/subscription
