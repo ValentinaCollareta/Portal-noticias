@@ -132,3 +132,18 @@ function invalidCity() {
 function focusCity() {
     validationCity.innerHTML = '';
 }
+
+// Postcode
+var postcode = document.querySelector('input[id="postcode"]');
+var validationPostcode = document.getElementById('validationPostcode');
+postcode.addEventListener('blur', invalidPostcode);
+postcode.addEventListener('focus', focusPost);
+function invalidPostcode() {
+    let input = postcode.value;
+    if (input.length < 3) {
+        validationPostcode.innerHTML = 'The Postcode must have at least 3 characters.';
+    }
+}
+function focusPost() {
+    validationPostcode.innerHTML = '';
+}
