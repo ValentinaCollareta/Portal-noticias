@@ -164,3 +164,11 @@ function invalidDni() {
 function focusDni() {
     validationDni.innerHTML = '';
 }
+
+//BONUS
+var bonus = document.getElementById('hello');
+var complete = fullName.value;
+fullName.addEventListener('keydown', completeHello)
+function completeHello(e) {
+    bonus.innerHTML = 'Hello ' + e.target.value + '!';
+}
