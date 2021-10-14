@@ -16,7 +16,7 @@ function invalidName() {
         arrayError.push('-Error in Full Name: '
         + 'The Name must be more than 6 letters and at least have 1 space.' + '\n');
     } else {
-        arrayOk.push(input + '\n');
+        arrayOk.push('Full Name: ' + input + '\n');
     }
 }
 function focusName() {
@@ -35,7 +35,7 @@ function invalidEmail() {
         arrayError.push('-Error in Email: '
         + 'The Email must have @ and at least 1 point.' + '\n');
     } else {
-        arrayOk.push(input + '\n');
+        arrayOk.push('Email: ' + input + '\n');
     }
 }
 function focusEmail() {
@@ -58,9 +58,10 @@ function invalidPassword() {
         validationPassword.innerHTML = 'The Password must have letters and numbers.';
         arrayError.push('-Error in Password: '
         + 'The Password must have letters and numbers.' + '\n');
-    }
-    if (input.length >= 8 && input.search(/[a-z]/i) > 0 && input.search(/[0-9]/) > 0){
-        arrayOk.push(input + '\n');
+    } else {
+        if (input.length >= 8) {
+            arrayOk.push('Password: ' + input + '\n');
+        }
     }
 }
 function focusPassword() {
@@ -79,7 +80,7 @@ function invalidConfirm() {
         arrayError.push('-Error in Confirm Password: '
         + 'The Passwords do not match.' + '\n');
     } else {
-        arrayOk.push(input + '\n');
+        arrayOk.push('Confirm Password: ' + input + '\n');
     }
 }
 function focusConfirm() {
@@ -104,7 +105,7 @@ function invalidAge() {
         + 'The Age must be an integer number.' + '\n');
     }
     if (input >= 18 && Number.isInteger(input)){
-        arrayOk.push(input + '\n');
+        arrayOk.push('Age: ' + input + '\n');
     }
 }
 function focusAge() {
@@ -130,7 +131,7 @@ function invalidPhone() {
         + 'Only numbers are allowed.' + '\n');
     }
     if (input.length >= 7 && !isNaN(inputNumber)) {
-        arrayOk.push(input + '\n');
+        arrayOk.push('Phone Number: ' + input + '\n');
     }
 }
 function focusPhone() {
@@ -153,6 +154,10 @@ function invalidAdress() {
         validationAdress.innerHTML = 'The Adress must have letters, numbers and at least 1 space.';
         arrayError.push('-Error in Adress: '
         + 'The Adress must have letters, numbers and at least 1 space.' + '\n');
+    } else {
+        if (input.length >= 5) {
+            arrayOk.push('Adress: ' + input + '\n');
+        }
     }
 }
 function focusAdress() {
@@ -171,7 +176,7 @@ function invalidCity() {
         arrayError.push('-Error in City: '
         + 'The City must have at least 3 characters.' + '\n');
     } else {
-        arrayOk.push(input + '\n');
+        arrayOk.push('City: ' + input + '\n');
     }
 }
 function focusCity() {
@@ -190,7 +195,7 @@ function invalidPostcode() {
         arrayError.push('-Error in Postcode: '
         + 'The Postcode must have at least 3 characters.' + '\n');
     } else {
-        arrayOk.push(input + '\n');
+        arrayOk.push('Postcode: ' + input + '\n');
     }
 }
 function focusPost() {
@@ -206,7 +211,7 @@ function invalidDni() {
     let input = dni.value;
     if (input.length >= 7 && input.length <=8) {
         validationDni.innerHTML = '';
-        arrayOk.push(input);
+        arrayOk.push('DNI: ' + input);
     } else {
         validationDni.innerHTML = 'The Dni must have 7 or 8 numbers.';
         arrayError.push('-Error in Dni: '
@@ -222,7 +227,9 @@ var button = document.getElementById('button');
 button.addEventListener('click', alertButton);
 function alertButton() {
     if(arrayError.length > 0) {
-        alert(arrayError.join(''));
+        let setArray = new Set(arrayError);
+        let result = [...setArray]
+        alert(result.join(''));
     } else {
         alert(arrayOk.join(''));
     }
