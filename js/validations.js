@@ -118,16 +118,19 @@ phone.addEventListener('blur', invalidPhone);
 phone.addEventListener('focus', focusPhone);
 function invalidPhone() {
     let input = phone.value;
+    let inputNumber = parseFloat(phone.value);
     if (input.length < 7) {
         validationPhone.innerHTML = 'The Phone must have at least 7 numbers.';
         arrayError.push('-Error in Phone Number: '
         + 'The Phone must have at least 7 numbers.' + '\n');
     }
-    if (input.indexOf('-') != -1 || input.indexOf(' ') != -1 ||
-        input.indexOf('(') != -1 || input.indexOf(')') != -1) {
+    if (isNaN(inputNumber)) {
         validationPhone.innerHTML = 'Only numbers are allowed.';
         arrayError.push('-Error in Phone Number: '
         + 'Only numbers are allowed.' + '\n');
+    }
+    if (input.length >= 7 && !isNaN(inputNumber)) {
+        arrayOk.push(input + '\n');
     }
 }
 function focusPhone() {
