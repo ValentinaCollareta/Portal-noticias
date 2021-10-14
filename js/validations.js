@@ -29,3 +29,21 @@ function invalidEmail() {
 function focusEmail() {
     validationEmail.innerHTML = '';
 }
+
+// Password
+var password = document.querySelector('input[id="password"]');
+var validationPassword = document.getElementById('validationPassword');
+password.addEventListener('blur', invalidPassword);
+password.addEventListener('focus', focusPassword);
+function invalidPassword() {
+    let input = password.value;
+    if (input.length < 8) {
+        validationPassword.innerHTML = 'The Password must have 8 characters ore more.';
+    }
+    if (input.search(/[a-z]/i) < 0 || input.search(/[0-9]/) < 0) {
+        validationPassword.innerHTML = 'The Password must have letters and numbers.';
+    }
+}
+function focusPassword() {
+    validationPassword.innerHTML = '';
+}
