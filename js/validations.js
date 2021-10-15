@@ -231,9 +231,7 @@ function alertButton() {
         let resultError = [...setArrayError]
         alert(resultError.join(''));
     } else if (arrayOk.length === 10) {
-        let setArrayOk = new Set(arrayError);
-        let resultOk = [...setArrayOk]
-        alert(resultOk.join(''));
+        alert(arrayOk.join(''));
     } else {
         alert('Please, complete the form.')
     }
