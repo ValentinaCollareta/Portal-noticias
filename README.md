@@ -14,4 +14,14 @@
 #### The real notice is from https://www.theguardian.com/lifeandstyle/2021/sep/25/how-one-family-turned-a-derelict-garage-into-a-home // The other titles and images are from The Guardian too.
 
 ## Weekly challenge 05
+:small_orange_diamond: For this week, we had to create the a subscription page and validate the inputs using
+JavaScript events.
+
+**You can see the result here**
 - :star: Github Page: https://valentinacollareta.github.io/Portal-noticias/subscription
+
+**Weekly Goals**
+1. Understanding what CSS's and JavaScript's libraries are.
+2. Understanding what is the DOM and capability to manipulate it.
+3. Controlling the DOM events.
+4. Develope functionalities to modern and complex Webs.
