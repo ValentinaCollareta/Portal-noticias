@@ -226,12 +226,12 @@ button.addEventListener('click', alertButton);
 function alertButton() {
     if(arrayError.length > 0) {
         let setArrayError = new Set(arrayError);
-        let resultError = [...setArrayError]
+        let resultError = [...setArrayError];
         alert(resultError.join(''));
     } else if (arrayOk.length === 10) {
         alert(arrayOk.join(''));
     } else {
-        alert('Please, complete the form.')
+        alert('Please, complete the form.');
     }
 }
 
