@@ -58,10 +58,8 @@ function invalidPassword() {
         validationPassword.innerHTML = 'The Password must have letters and numbers.';
         arrayError.push('-Error in Password: '
         + 'The Password must have letters and numbers.' + '\n');
-    } else {
-        if (input.length >= 8) {
-            arrayOk.push('Password: ' + input + '\n');
-        }
+    } else if (input.length >= 8) {
+        arrayOk.push('Password: ' + input + '\n');
     }
 }
 function focusPassword() {
