@@ -227,11 +227,15 @@ var button = document.getElementById('button');
 button.addEventListener('click', alertButton);
 function alertButton() {
     if(arrayError.length > 0) {
-        let setArray = new Set(arrayError);
-        let result = [...setArray]
-        alert(result.join(''));
+        let setArrayError = new Set(arrayError);
+        let resultError = [...setArrayError]
+        alert(resultError.join(''));
+    } else if (arrayOk.length === 10) {
+        let setArrayOk = new Set(arrayError);
+        let resultOk = [...setArrayOk]
+        alert(resultOk.join(''));
     } else {
-        alert(arrayOk.join(''));
+        alert('Please, complete the form.')
     }
 }
 
