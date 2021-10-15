@@ -237,8 +237,7 @@ function alertButton() {
 
 //BONUS
 var bonus = document.getElementById('hello');
-var complete = fullName.value;
-fullName.addEventListener('keydown', completeHello)
+fullName.addEventListener('keyup', completeHello);
 function completeHello(e) {
     bonus.innerHTML = 'Hello ' + e.target.value + '!';
 }
