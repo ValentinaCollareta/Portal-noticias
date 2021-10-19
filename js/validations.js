@@ -1,4 +1,4 @@
-// FORM VALIDATIONS
+// FORM VALIDATIONS JS
 
 // Array Error & Array Ok
 var arrayOk = [];
