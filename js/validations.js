@@ -229,7 +229,9 @@ function alertButton() {
         let resultError = [...setArrayError];
         alert(resultError.join(''));
     } else if (arrayOk.length === 10) {
-        alert(arrayOk.join(''));
+        let setArrayOk = new Set(arrayOk);
+        let resultOk = [...setArrayOk];
+        alert(resultOk.join(''));
     } else {
         alert('Please, complete the form.');
     }
