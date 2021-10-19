@@ -228,7 +228,7 @@ function alertButton() {
         let setArrayError = new Set(arrayError);
         let resultError = [...setArrayError];
         alert(resultError.join(''));
-    } else if (arrayOk.length === 10) {
+    } else if (arrayOk.length >= 10) {
         let setArrayOk = new Set(arrayOk);
         let resultOk = [...setArrayOk];
         alert(resultOk.join(''));
