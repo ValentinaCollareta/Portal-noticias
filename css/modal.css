@@ -8,3 +8,11 @@
     background-color: rgba(26, 82, 34, 0.445);
     z-index: 1;
 }
+#success-modal, #fail-modal {
+    width: 100%;
+    margin: 10px auto;
+    padding: 20px 0px;
+    background-color: #FFFFFF;
+    font-size: 0.70em;
+    text-align: center;
+}
