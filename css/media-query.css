@@ -53,6 +53,9 @@
         height: 200px;
         background-position: center;
     }
+    #success-modal, #fail-modal {
+        max-width: 80%;
+    }
 }
 @media only screen and (min-width: 992px) {
     /* For desktops: */
@@ -68,7 +71,7 @@
         display: flex;
         height: 100vh;
     }
-    #topic h3, #trending h3, #sus-topic {
+    #topic h3, #trending h3, #sus-topic, #success-modal, #fail-modal {
         font-size: 1em;
     }
     #sus-topic {
@@ -92,6 +95,9 @@
     }
     #suscribe {
         margin-top: 20%;
+    }
+    #success-modal, #fail-modal {
+        max-width: 60%;
     }
 }
 @media only screen and (min-width: 1200px) {
