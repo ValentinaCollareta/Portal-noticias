@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/media-query.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
     <link rel="icon" type="image/png" href="img/favicon.ico" sizes="16x16">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Scheherazade+New&display=swap" rel="stylesheet">
     <title>Subscription to Diario Andrómeda</title>
@@ -92,6 +93,18 @@
             <button id="send" type="button">Send</button>
         </div>
     </form>
+    <div id="modal">
+        <div id="success-modal">
+            <p class="p-modal">Congrats! You are now subscribed to Diario Andrómeda :)</p>
+            <span class="close-modal">x</span>
+            <div id="success-msg"></div>
+        </div>
+        <div id="fail-modal">
+            <p class="p-modal">I'm sorry, subscription failed to load :(</p>
+            <span class="close-modal">x</span>
+            <div id="fail-msg"></div>
+        </div>
+    </div>
     <footer id="footer-page">
         <div id="back-to-top">
             <a id="back-a" href="#">↑ Back To Top ↑</a>
