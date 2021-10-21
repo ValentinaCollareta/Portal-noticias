@@ -16,3 +16,9 @@
     font-size: 0.70em;
     text-align: center;
 }
+.close-modal {
+    top: 0;
+    left: 0;
+    padding: 10px;
+    float: right;
+}
