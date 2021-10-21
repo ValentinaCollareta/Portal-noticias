@@ -222,16 +222,20 @@ function focusDni() {
 
 // Button -> Send
 var button = document.getElementById('button');
-button.addEventListener('click', alertButton);
-function alertButton() {
+button.addEventListener('click', showModal);
+var modalHidden = document.getElementsByClassName('modal-hidden');
+var successModalMsg = document.getElementById('success-msg');
+var failModalMsg = document.getElementById('fail-msg');
+var successModal = document.getElementById('success-modal');
+var failModal = document.getElementById('fail-modal');
+function showModal() {
+    modalHidden[0].classList.remove('modal-hidden');
     if(arrayError.length > 0) {
-        let setArrayError = new Set(arrayError);
-        let resultError = [...setArrayError];
-        alert(resultError.join(''));
+        successModal.style.display = 'none';
+        failModalMsg.innerHTML = arrayError.join('<br>');
     } else if (arrayOk.length >= 10) {
-        let setArrayOk = new Set(arrayOk);
-        let resultOk = [...setArrayOk];
-        alert(resultOk.join(''));
+        failModal.style.display = 'none';
+        successModalMsg.innerHTML = arrayOk.join('<br>');
     } else {
         alert('Please, complete the form.');
     }
