@@ -228,19 +228,27 @@ var successModalMsg = document.getElementById('success-msg');
 var failModalMsg = document.getElementById('fail-msg');
 var successModal = document.getElementById('success-modal');
 var failModal = document.getElementById('fail-modal');
+var concatenateErrors = '';
+var concatenateOk = '';
 function showModal() {
     if(arrayError.length > 0) {
         modalHidden[0].classList.remove('modal-hidden');
         successModal.style.display = 'none';
         let setArrayError = new Set(arrayError);
         let resultError = [...setArrayError];
-        failModalMsg.innerHTML = resultError.join('<br>');
+        for (let i = 0; i < resultError.length; i++) {
+            concatenateErrors = concatenateErrors + '<li>' + resultError[i] + '</li>';
+        }
+        failModalMsg.innerHTML = '<ul>' + concatenateErrors + '</ul>';
     } else if (arrayOk.length >= 10) {
         modalHidden[0].classList.remove('modal-hidden');
         failModal.style.display = 'none';
         let setArrayOk = new Set(arrayOk);
         let resultOk = [...setArrayOk];
-        successModalMsg.innerHTML = resultOk.join('<br>');
+        for (let i = 0; i < resultOk.length; i++) {
+            concatenateOk = concatenateOk + '<li>' + resultOk[i] + '</li>';
+        }
+        successModalMsg.innerHTML = '<ul>' + concatenateOk + '</ul>';
     } else {
         alert('Please, complete the form.');
     }
