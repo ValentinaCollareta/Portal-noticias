@@ -232,18 +232,28 @@ function showModal() {
     if(arrayError.length > 0) {
         modalHidden[0].classList.remove('modal-hidden');
         successModal.style.display = 'none';
-        failModalMsg.innerHTML = arrayError.join('<br>');
+        let setArrayError = new Set(arrayError);
+        let resultError = [...setArrayError];
+        failModalMsg.innerHTML = resultError.join('<br>');
     } else if (arrayOk.length >= 10) {
         modalHidden[0].classList.remove('modal-hidden');
         failModal.style.display = 'none';
-        successModalMsg.innerHTML = arrayOk.join('<br>');
+        let setArrayOk = new Set(arrayOk);
+        let resultOk = [...setArrayOk];
+        successModalMsg.innerHTML = resultOk.join('<br>');
     } else {
         alert('Please, complete the form.');
     }
 }
 
 // Button -> close
-
+var buttonX = document.getElementsByClassName('close-modal');
+var modalHiddenID = document.getElementById('modal');
+buttonX[0].addEventListener('click', closeModal);
+buttonX[1].addEventListener('click', closeModal);
+function closeModal() {
+    modalHiddenID.classList.add('modal-hidden');
+}
 
 //BONUS
 var bonus = document.getElementById('hello');
