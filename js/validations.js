@@ -229,17 +229,21 @@ var failModalMsg = document.getElementById('fail-msg');
 var successModal = document.getElementById('success-modal');
 var failModal = document.getElementById('fail-modal');
 function showModal() {
-    modalHidden[0].classList.remove('modal-hidden');
     if(arrayError.length > 0) {
+        modalHidden[0].classList.remove('modal-hidden');
         successModal.style.display = 'none';
         failModalMsg.innerHTML = arrayError.join('<br>');
     } else if (arrayOk.length >= 10) {
+        modalHidden[0].classList.remove('modal-hidden');
         failModal.style.display = 'none';
         successModalMsg.innerHTML = arrayOk.join('<br>');
     } else {
         alert('Please, complete the form.');
     }
 }
+
+// Button -> close
+
 
 //BONUS
 var bonus = document.getElementById('hello');
