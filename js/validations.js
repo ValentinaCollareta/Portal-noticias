@@ -240,6 +240,7 @@ function showModal() {
             concatenateErrors = concatenateErrors + '<li>' + resultError[i] + '</li>';
         }
         failModalMsg.innerHTML = '<ul>' + concatenateErrors + '</ul>';
+        // return button.removeEventListener('click', showModal);
     } else if (arrayOk.length >= 10) {
         modalHidden[0].classList.remove('modal-hidden');
         failModal.style.display = 'none';
@@ -247,8 +248,9 @@ function showModal() {
         let resultOk = [...setArrayOk];
         for (let i = 0; i < resultOk.length; i++) {
             concatenateOk = concatenateOk + '<li>' + resultOk[i] + '</li>';
-        }
+        }  
         successModalMsg.innerHTML = '<ul>' + concatenateOk + '</ul>';
+        return button.removeEventListener('click', showModal);
     } else {
         alert('Please, complete the form.');
     }
