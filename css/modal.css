@@ -33,3 +33,9 @@
 .p-modal {
     font-size: 1em;
 }
+.modal-list {
+    list-style: none;
+}
+.modal-list li {
+    padding-bottom: 5px;
+}

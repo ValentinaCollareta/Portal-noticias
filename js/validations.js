@@ -231,12 +231,12 @@ function showModal() {
         modalHidden[0].classList.remove('modal-hidden');
         successModal.style.display = 'none';
         failModal.style.display = 'block';
-        failModalMsg.innerHTML = '<ul>' + concatenateErrors + '</ul>';
+        failModalMsg.innerHTML = '<ul class="modal-list">' + concatenateErrors + '</ul>';
     } else if (concatenateOk.length >= 10) {
         modalHidden[0].classList.remove('modal-hidden');
         failModal.style.display = 'none';
         successModal.style.display = 'block';
-        successModalMsg.innerHTML = '<ul>' + concatenateOk + '</ul>';
+        successModalMsg.innerHTML = '<ul class="modal-list">' + concatenateOk + '</ul>';
     } else {
         alert('Please, complete the form.');
     }
