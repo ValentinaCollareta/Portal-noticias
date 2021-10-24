@@ -1,7 +1,6 @@
 // FORM VALIDATIONS JS
 
 // Array Error & Array Ok -- ConcatenateOk & ConcatenateErrors
-var arrayOk = [];
 var arrayError = [];
 var concatenateOk = '';
 var concatenateErrors = '';
@@ -246,8 +245,9 @@ function showModal() {
 // Button -> close
 var buttonX = document.getElementsByClassName('close-modal');
 var modalHiddenID = document.getElementById('modal');
-buttonX[0].addEventListener('click', closeModal);
-buttonX[1].addEventListener('click', closeModal);
+for (let i = 0; i < buttonX.length; i++) {
+    buttonX[i].addEventListener('click', closeModal);
+}
 function closeModal() {
     modalHiddenID.classList.add('modal-hidden');
 }
