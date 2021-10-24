@@ -235,7 +235,7 @@ var showError;
 button.addEventListener('click', sendData);
 function sendData() {
     showModal();
-    var url = "https://curso-dev-2021.herokuapp.com/newsletter?fullName=" + fullName.value + "&email=" + email.value
+    var url = "https://curso-dev-2021.herokuapp.com/newsletter?name=" + fullName.value + "&email=" + email.value
     + "&password=" + password.value + "&confirmPassword=" + confirmPassword.value + "&age=" + age.value
     + "&phone=" + phone.value + "&adress=" + adress.value + "&city=" + city.value + "&postcode=" + postcode.value
     + "&id=" + id.value;
@@ -258,6 +258,20 @@ function sendData() {
         });
 }
 
+// LocalStorage
+function setData() {
+    localStorage.setItem('name', fullName.value);
+    localStorage.setItem('email', email.value);
+    localStorage.setItem('password', password.value);
+    localStorage.setItem('confirmPassword', confirmPassword.value);
+    localStorage.setItem('age', age.value);
+    localStorage.setItem('phone', phone.value);
+    localStorage.setItem('adress', adress.value);
+    localStorage.setItem('city', city.value);
+    localStorage.setItem('postcode', postcode.value);
+    localStorage.setItem('id', id.value);
+}
+
 // Button -> Send
 var modalHidden = document.getElementsByClassName('modal-hidden');
 var successModal = document.getElementById('success-modal');
@@ -270,9 +284,10 @@ function showModal() {
         successModal.style.display = 'none';
         failModal.style.display = 'block';
         failModalMsg.innerHTML = '<ul class="modal-list">' + concatenateErrors + '</ul>';
-    } else if (counterOk != 10) {
+    } else if (counterOk < 10) {
         alert('Please, complete the form.');
     } else {
+        setData();
         modalHidden[0].classList.remove('modal-hidden');
         failModal.style.display = 'none';
         successModal.style.display = 'block';
