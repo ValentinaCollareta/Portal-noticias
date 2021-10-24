@@ -3,6 +3,7 @@
 // Array Error & Array Ok -- ConcatenateOk & ConcatenateErrors
 var arrayError = [];
 var concatenateOk = '';
+var counterOk = 0;
 var concatenateErrors = '';
 
 // Full Name
@@ -21,6 +22,7 @@ function nameValidator() {
         concatenateErrors += '<li>' + arrayError[0] + '</li>';
     } else {
         concatenateOk += '<li>' + 'Full Name: ' + input + '</li>';
+        counterOk += 1;
     }
 }
 
@@ -40,6 +42,7 @@ function emailValidator() {
         concatenateErrors += '<li>' + arrayError[1] + '</li>';
     } else {
         concatenateOk += '<li>' + 'Email: ' + input + '</li>';
+        counterOk += 1;
     }
 }
 
@@ -64,6 +67,7 @@ function passwordValidator() {
         concatenateErrors += '<li>' + arrayError[3] + '</li>';
     } else if (input.length >= 8) {
         concatenateOk += '<li>' + 'Password: ' + input + '</li>';
+        counterOk += 1;
     }
 }
 
@@ -83,6 +87,7 @@ function confirmValidator() {
         concatenateErrors += '<li>' + arrayError[4] + '</li>';
     } else {
         concatenateOk += '<li>' + 'Confirm Password: ' + input + '</li>';
+        counterOk += 1;
     }
 }
 
@@ -108,6 +113,7 @@ function ageValidator() {
     }
     if (input >= 18 && Number.isInteger(input)){
         concatenateOk += '<li>' + 'Age: ' + input + '</li>';
+        counterOk += 1;
     }
 }
 
@@ -134,6 +140,7 @@ function phoneValidator() {
     }
     if (input.length >= 7 && !isNaN(inputNumber)) {
         concatenateOk += '<li>' + 'Phone Number: ' + input + '</li>';
+        counterOk += 1;
     }
 }
 
@@ -158,6 +165,7 @@ function adressValidator() {
         concatenateErrors += '<li>' + arrayError[10] + '</li>';
     } else if (input.length >= 5) {
         concatenateOk += '<li>' + 'Adress: ' + input + '</li>';
+        counterOk += 1;
     }
 }
 
@@ -177,6 +185,7 @@ function cityValidator() {
         concatenateErrors += '<li>' + arrayError[11] + '</li>';
     } else {
         concatenateOk += '<li>' + 'City: ' + input + '</li>';
+        counterOk += 1;
     }
 }
 
@@ -196,6 +205,7 @@ function postcodeValidator() {
         concatenateErrors += '<li>' + arrayError[12] + '</li>';
     } else {
         concatenateOk += '<li>' + 'Postcode: ' + input + '</li>';
+        counterOk += 1;
     }
 }
 
@@ -211,6 +221,7 @@ function idValidator() {
     let input = id.value;
     if (input.length >= 7 && input.length <=8) {
         concatenateOk += '<li>' + 'ID: ' + input + '</li>';
+        counterOk += 1;
     } else {
         invalidId.innerHTML = 'The Id must have 7 or 8 numbers.';
         arrayError[13] = '-Error in Id: The Id must have 7 or 8 numbers.';
@@ -218,9 +229,36 @@ function idValidator() {
     }
 }
 
-// Button -> Send
+// Button -> JSON
 var button = document.getElementById('button');
-button.addEventListener('click', showModal);
+var showError;
+button.addEventListener('click', sendData);
+function sendData() {
+    showModal();
+    var url = "https://curso-dev-2021.herokuapp.com/newsletter?fullName=" + fullName.value + "&email=" + email.value
+    + "&password=" + password.value + "&confirmPassword=" + confirmPassword.value + "&age=" + age.value
+    + "&phone=" + phone.value + "&adress=" + adress.value + "&city=" + city.value + "&postcode=" + postcode.value
+    + "&id=" + id.value;
+    fetch(url)
+        .then(function(response) {
+            console.log(response);
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+        })
+        .catch(function(error) {
+            showError = 'Error status: ' + error;
+            var newElement = document.createElement('p');
+            var newContent = document.createTextNode(showError);
+            newElement.appendChild(newContent);
+            var currentElement = document.getElementById('fail-msg');
+            var parentElement = document.getElementById('fail-modal');
+            parentElement.insertBefore(newElement, currentElement);
+        });
+}
+
+// Button -> Send
 var modalHidden = document.getElementsByClassName('modal-hidden');
 var successModal = document.getElementById('success-modal');
 var successModalMsg = document.getElementById('success-msg');
@@ -232,17 +270,17 @@ function showModal() {
         successModal.style.display = 'none';
         failModal.style.display = 'block';
         failModalMsg.innerHTML = '<ul class="modal-list">' + concatenateErrors + '</ul>';
-    } else if (concatenateOk.length >= 10) {
+    } else if (counterOk != 10) {
+        alert('Please, complete the form.');
+    } else {
         modalHidden[0].classList.remove('modal-hidden');
         failModal.style.display = 'none';
         successModal.style.display = 'block';
         successModalMsg.innerHTML = '<ul class="modal-list">' + concatenateOk + '</ul>';
-    } else {
-        alert('Please, complete the form.');
     }
 }
 
-// Button -> close
+// Modal Button -> close
 var buttonX = document.getElementsByClassName('close-modal');
 var modalHiddenID = document.getElementById('modal');
 for (let i = 0; i < buttonX.length; i++) {
