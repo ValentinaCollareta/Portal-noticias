@@ -232,6 +232,7 @@ function idValidator() {
 // Button -> JSON
 var button = document.getElementById('button');
 var showError;
+var setDataBoolean;
 button.addEventListener('click', sendData);
 function sendData() {
     showModal();
@@ -241,7 +242,6 @@ function sendData() {
     + "&id=" + id.value;
     fetch(url)
         .then(function(response) {
-            console.log(response);
             return response.json();
         })
         .then(function(data) {
@@ -255,6 +255,7 @@ function sendData() {
             var currentElement = document.getElementById('fail-msg');
             var parentElement = document.getElementById('fail-modal');
             parentElement.insertBefore(newElement, currentElement);
+            return setDataBoolean = false;
         });
 }
 
@@ -270,6 +271,7 @@ function setData() {
     localStorage.setItem('city', city.value);
     localStorage.setItem('postcode', postcode.value);
     localStorage.setItem('id', id.value);
+    return setDataBoolean = true;
 }
 
 // Button -> Send
@@ -303,6 +305,22 @@ for (let i = 0; i < buttonX.length; i++) {
 }
 function closeModal() {
     modalHiddenID.classList.add('modal-hidden');
+}
+
+// ONLOAD
+window.onload = function() {
+    if (setDataBoolean != false) {
+        fullName.value = localStorage.getItem('name');
+        email.value = localStorage.getItem('email');
+        password.value = localStorage.getItem('password');
+        confirmPassword.value = localStorage.getItem('confirmPassword');
+        age.value = localStorage.getItem('age');
+        phone.value = localStorage.getItem('phone');
+        adress.value = localStorage.getItem('adress');
+        city.value = localStorage.getItem('city');
+        postcode.value = localStorage.getItem('postcode');
+        id.value = localStorage.getItem('id');
+    }
 }
 
 //BONUS
