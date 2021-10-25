@@ -368,8 +368,10 @@ function showModal() {
 		});
     if (error === true) {
         modalHidden[0].classList.remove('modal-hidden');
-        successModal.style.display = 'none';
-        failModal.style.display = 'block';
+        successModal.id = 'succesModalHidden';
+        successModalMsg.id = 'successModalHidden';
+        failModal.id = 'fail-modal';
+        failModalMsg.id = 'failModal';
         failModalMsg.innerHTML = '<ul class="modal-list">' + valuesOfErrorObj.join('') + '</ul>';
 		valuesOfErrorObj.forEach(element => {
 			if (element === null) {
@@ -379,9 +381,10 @@ function showModal() {
     } else {
         res = true;
         modalHidden[0].classList.remove('modal-hidden');
-        failModal.style.display = 'none';
-        failModalMsg.style.display = 'none';
-        successModal.style.display = 'block';
+        failModal.id = 'failModalHidden';
+        failModalMsg.id = 'failModalHidden';
+        successModal.id = 'success-modal';
+        successModalMsg.id = 'success-modal';
         if (valuesOfFormObj != null) {
             successModalMsg.innerHTML = '<ul class="modal-list">'
             + formObj.fullName + formObj.email + formObj.password + formObj.confirmPassword

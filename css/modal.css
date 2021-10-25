@@ -1,4 +1,4 @@
-.modal-hidden {
+.modal-hidden, #succesModalHidden, #failModalHidden {
     display: none;
 }
 #modal {
@@ -14,9 +14,9 @@
 #success-modal, #fail-modal {
     width: 100%;
     margin: 10px auto;
-    padding: 20px 0px;
+    padding: 10px 0px;
     background-color: #FFFFFF;
-    font-size: 0.70em;
+    font-size: 0.80em;
     text-align: center;
 }
 .close-modal {

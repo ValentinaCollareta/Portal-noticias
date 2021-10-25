@@ -97,6 +97,8 @@
         margin-top: 20%;
     }
     #success-modal, #fail-modal {
+        padding: 20px 0px;
+        font-size: 1em;
         max-width: 60%;
     }
 }
