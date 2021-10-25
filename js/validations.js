@@ -1,23 +1,34 @@
 // FORM VALIDATIONS JS
 
-// Array Error & Array Ok -- ConcatenateOk & ConcatenateErrors
-var arrayError = [];
-var concatenateOk = '';
+// Counter
 var counterOk = 0;
-var concatenateErrors = '';
 
 // Principal object
 var formObj = {
-    fullName = null,
-    email = null,
-    password = null,
-    confirmPassword = null,
-    age = null,
-    phone = null,
-    adress = null,
-    city = null,
-    postcode = null,
-    id = null
+    fullName : null,
+    email : null,
+    password : null,
+    confirmPassword : null,
+    age : null,
+    phone : null,
+    adress : null,
+    city : null,
+    postcode : null,
+    id : null
+}
+
+// Error object for modal
+var errorObj = {
+    fullName : null,
+    email : null,
+    password : null,
+    confirmPassword : null,
+    age : null,
+    phone : null,
+    adress : null,
+    city : null,
+    postcode : null,
+    id : null
 }
 
 // Full Name
@@ -32,10 +43,10 @@ function nameValidator() {
     let input = fullName.value;
     if (input.length < 6 || input.indexOf(' ') == -1) {
         invalidName.innerHTML = 'The Name must be more than 6 letters and at least have 1 space.';
-        arrayError[0] = '-Error in Full Name: The Name must be more than 6 letters and at least have 1 space.';
-        concatenateErrors += '<li>' + arrayError[0] + '</li>';
+        formObj.fullName = 0;
+        errorObj.fullName = '<li>' + '-Error in Full Name.' + '</li>';
     } else {
-        concatenateOk += '<li>' + 'Full Name: ' + input + '</li>';
+        formObj.fullName = '<li>' + 'Full Name: ' + input + '</li>';
         counterOk += 1;
     }
 }
@@ -52,10 +63,10 @@ function emailValidator() {
     let input = email.value;
     if (input.indexOf('@') == -1 || input.indexOf('.') == -1) {
         invalidEmail.innerHTML = 'Invalid email. It must have @ and at least 1 point.';
-        arrayError[1] = '-Error in Email: The Email must have @ and at least 1 point.';
-        concatenateErrors += '<li>' + arrayError[1] + '</li>';
+        formObj.email = 0;
+        errorObj.email = '<li>' + '-Error in Email.' + '</li>';
     } else {
-        concatenateOk += '<li>' + 'Email: ' + input + '</li>';
+        formObj.email = '<li>' + 'Email: ' + input + '</li>';
         counterOk += 1;
     }
 }
@@ -72,15 +83,15 @@ function passwordValidator() {
     let input = password.value;
     if (input.length < 8) {
         invalidPassword.innerHTML = 'The Password must have 8 characters ore more.';
-        arrayError[2] = '-Error in Password: The Password must have 8 characters ore more.';
-        concatenateErrors += '<li>' + arrayError[2] + '</li>';
+        formObj.password = 0;
+        errorObj.password = '<li>' + '-Error in Password.' + '</li>';
     }
     if (input.search(/[a-z]/i) < 0 || input.search(/[0-9]/) < 0) {
         invalidPassword.innerHTML = 'The Password must have letters and numbers.';
-        arrayError[3] = '-Error in Password: The Password must have letters and numbers.';
-        concatenateErrors += '<li>' + arrayError[3] + '</li>';
+        formObj.password = 0;
+        errorObj.password = '<li>' + '-Error in Password.' + '</li>';
     } else if (input.length >= 8) {
-        concatenateOk += '<li>' + 'Password: ' + input + '</li>';
+        formObj.password = '<li>' + 'Password: ' + input + '</li>';
         counterOk += 1;
     }
 }
@@ -97,10 +108,10 @@ function confirmValidator() {
     let input = confirmPassword.value;
     if (input != password.value || input === '') {
         invalidConfirm.innerHTML = 'The Passwords do not match.';
-        arrayError[4] = '-Error in Confirm Password: The Passwords do not match.';
-        concatenateErrors += '<li>' + arrayError[4] + '</li>';
+        formObj.confirmPassword = 0;
+        errorObj.confirmPassword = '<li>' + '-Error in Confirm Password.' + '</li>';
     } else {
-        concatenateOk += '<li>' + 'Confirm Password: ' + input + '</li>';
+        formObj.confirmPassword = '<li>' + 'Confirm Password: ' + input + '</li>';
         counterOk += 1;
     }
 }
@@ -117,16 +128,16 @@ function ageValidator() {
     let input = parseFloat(age.value);
     if (input < 18) {
         invalidAge.innerHTML = 'The Age must be greater or equal than 18.';
-        arrayError[5] = '-Error in Age: The Age must be greater or equal than 18.';
-        concatenateErrors += '<li>' + arrayError[5] + '</li>';
+        formObj.age = 0;
+        errorObj.age = '<li>' + '-Error in Age.' + '</li>';
     }
     if (!Number.isInteger(input)) {
         invalidAge.innerHTML = 'The Age must be an integer number.';
-        arrayError[6] = '-Error in Age: The Age must be an integer number.';
-        concatenateErrors += '<li>' + arrayError[6] + '</li>';
+        formObj.age = 0;
+        errorObj.age = '<li>' + '-Error in Age.' + '</li>';
     }
     if (input >= 18 && Number.isInteger(input)){
-        concatenateOk += '<li>' + 'Age: ' + input + '</li>';
+        formObj.age = '<li>' + 'Age: ' + input + '</li>';
         counterOk += 1;
     }
 }
@@ -144,16 +155,16 @@ function phoneValidator() {
     let inputNumber = parseFloat(phone.value);
     if (input.length < 7) {
         invalidPhone.innerHTML = 'The Phone must have at least 7 numbers.';
-        arrayError[7] = '-Error in Phone Number: The Phone must have at least 7 numbers.';
-        concatenateErrors += '<li>' + arrayError[7] + '</li>';
+        formObj.phone = 0;
+        errorObj.phone = '<li>' + '-Error in Phone Number.' + '</li>';
     }
     if (isNaN(inputNumber)) {
         invalidPhone.innerHTML = 'Only numbers are allowed.';
-        arrayError[8] = '-Error in Phone Number: Only numbers are allowed.';
-        concatenateErrors += '<li>' + arrayError[8] + '</li>';
+        formObj.phone = 0;
+        errorObj.phone = '<li>' + '-Error in Phone Number.' + '</li>';
     }
     if (input.length >= 7 && !isNaN(inputNumber)) {
-        concatenateOk += '<li>' + 'Phone Number: ' + input + '</li>';
+        formObj.phone = '<li>' + 'Phone Number: ' + input + '</li>';
         counterOk += 1;
     }
 }
@@ -170,15 +181,15 @@ function adressValidator() {
     let input = adress.value;
     if (input.length < 5) {
         invalidAdress.innerHTML = 'The Adress must have at least 5 characters.';
-        arrayError[9] = '-Error in Adress: The Adress must have at least 5 characters.';
-        concatenateErrors += '<li>' + arrayError[9] + '</li>';
+        formObj.adress = 0;
+        errorObj.adress = '<li>' + '-Error in Adress.' + '</li>';
     }
     if (input.search(/[a-z]/i) < 0 || input.search(/[0-9]/) < 0 || input.indexOf(' ') == -1) {
         invalidAdress.innerHTML = 'The Adress must have letters, numbers and at least 1 space.';
-        arrayError[10] = '-Error in Adress: The Adress must have letters, numbers and at least 1 space.';
-        concatenateErrors += '<li>' + arrayError[10] + '</li>';
+        formObj.adress = 0;
+        errorObj.adress = '<li>' + '-Error in Adress.' + '</li>';
     } else if (input.length >= 5) {
-        concatenateOk += '<li>' + 'Adress: ' + input + '</li>';
+        formObj.adress = '<li>' + 'Adress: ' + input + '</li>';
         counterOk += 1;
     }
 }
@@ -195,10 +206,10 @@ function cityValidator() {
     let input = city.value;
     if (input.length < 3) {
         invalidCity.innerHTML = 'The City must have at least 3 characters.';
-        arrayError[11] = '-Error in City: The City must have at least 3 characters.';
-        concatenateErrors += '<li>' + arrayError[11] + '</li>';
+        formObj.city = 0;
+        errorObj.city = '<li>' + '-Error in City.' + '</li>';
     } else {
-        concatenateOk += '<li>' + 'City: ' + input + '</li>';
+        formObj.city = '<li>' + 'City: ' + input + '</li>';
         counterOk += 1;
     }
 }
@@ -215,10 +226,10 @@ function postcodeValidator() {
     let input = postcode.value;
     if (input.length < 3) {
         invalidPostcode.innerHTML = 'The Postcode must have at least 3 characters.';
-        arrayError[12] = '-Error in Postcode: The Postcode must have at least 3 characters.';
-        concatenateErrors += '<li>' + arrayError[12] + '</li>';
+        formObj.postcode = 0;
+        errorObj.postcode = '<li>' + '-Error in Postcode.' + '</li>';
     } else {
-        concatenateOk += '<li>' + 'Postcode: ' + input + '</li>';
+        formObj.postcode = '<li>' + 'Postcode: ' + input + '</li>';
         counterOk += 1;
     }
 }
@@ -234,12 +245,12 @@ function focusId() {
 function idValidator() {
     let input = id.value;
     if (input.length >= 7 && input.length <=8) {
-        concatenateOk += '<li>' + 'ID: ' + input + '</li>';
+        formObj.id = '<li>' + 'ID: ' + input + '</li>';
         counterOk += 1;
     } else {
         invalidId.innerHTML = 'The Id must have 7 or 8 numbers.';
-        arrayError[13] = '-Error in Id: The Id must have 7 or 8 numbers.';
-        concatenateErrors += '<li>' + arrayError[13] + '</li>';
+        formObj.id = '-Error in Id: The Id must have 7 or 8 numbers.';
+        errorObj.id = '<li>' + formObj.id + '</li>';
     }
 }
 
@@ -259,6 +270,7 @@ function sendData() {
             return response.json();
         })
         .then(function(data) {
+            setData();
             console.log(data);
         })
         .catch(function(error) {
@@ -294,20 +306,25 @@ var successModal = document.getElementById('success-modal');
 var successModalMsg = document.getElementById('success-msg');
 var failModal = document.getElementById('fail-modal');
 var failModalMsg = document.getElementById('fail-msg');
+var valuesOfErrorObj = Object.values(errorObj);
 function showModal() {
-    if(arrayError.length > 0) {
+    // if (counterOk < 10) {
+    //     return alert('Please, complete the form.');
+    // }
+    if (errorObj.fullName != null) {
         modalHidden[0].classList.remove('modal-hidden');
         successModal.style.display = 'none';
         failModal.style.display = 'block';
-        failModalMsg.innerHTML = '<ul class="modal-list">' + concatenateErrors + '</ul>';
-    } else if (counterOk < 10) {
-        alert('Please, complete the form.');
+        failModalMsg.innerHTML = '<ul class="modal-list">' + 'hola' + '</ul>';
     } else {
-        setData();
         modalHidden[0].classList.remove('modal-hidden');
         failModal.style.display = 'none';
         successModal.style.display = 'block';
-        successModalMsg.innerHTML = '<ul class="modal-list">' + concatenateOk + '</ul>';
+        successModalMsg.innerHTML = '<ul class="modal-list">'
+        + formObj.fullName + formObj.email + formObj.password + formObj.confirmPassword
+        + formObj.age + formObj.phone + formObj.adress + formObj.city + formObj.postcode + formObj.id
+        + '</ul>';
+        // clearOption();
     }
 }
 
@@ -334,7 +351,6 @@ window.onload = function() {
         city.value = localStorage.getItem('city');
         postcode.value = localStorage.getItem('postcode');
         id.value = localStorage.getItem('id');
-        // clearOption();
     }
 }
 
@@ -342,12 +358,16 @@ window.onload = function() {
 // buttonToChange.addEventListener('click', () => alert('You are already subscribed.'));
 
 // Clear Option
-// function clearOption() {
-//     var buttonToChange = document.getElementById('send');
-//     buttonToChange.innerHTML = 'Clear values';
-//     buttonToChange.addEventListener('click', () => localStorage.clear());
-//     buttonToChange.addEventListener('click', () => location.reload());
-// }
+function clearOption() {
+    var newButtonChange = document.createElement('p');
+    var newTextButton = document.createTextNode('Clear values');
+    newButtonChange.appendChild(newTextButton);
+    var currentButton = document.getElementById('send');
+    var parentButton = document.getElementById('button');
+    parentButton.insertBefore(newButtonChange, currentButton);
+    newButtonChange.addEventListener('click', () => localStorage.clear());
+    newButtonChange.addEventListener('click', () => location.reload());
+}
 
 //BONUS
 var bonus = document.getElementById('hello');
