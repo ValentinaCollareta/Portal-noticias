@@ -14,7 +14,7 @@
 #### The real notice is from https://www.theguardian.com/lifeandstyle/2021/sep/25/how-one-family-turned-a-derelict-garage-into-a-home // The other titles and images are from The Guardian too.
 
 ## Weekly challenge 05
-:small_orange_diamond: For this week, we had to create the a subscription page and validate the inputs using
+:small_orange_diamond: For this week, we had to create a subscription page and validate the inputs using
 JavaScript events.
 
 **You can see the result here**
@@ -25,3 +25,13 @@ JavaScript events.
 2. Understanding what is the DOM and capability to manipulate it.
 3. Controlling the DOM events.
 4. Develope functionalities to modern and complex Webs.
+
+## Weekly challenge 06
+:small_orange_diamond: For this week, we had to extend the subscription page with the validates using
+JavaScript events and send the data input to a web server using HTTP calls from JS when the button is pressed.
+
+**Weekly Goals**
+1. Understand the details of a Client-server architecture.
+2. Understand the concept of asynchronous function and the difference between Callbacks and Promises.
+3. Implement HTTP requests to external services to get data in asynchronic ways.
+4. Adopt the tools for persistence of data in the browser.
