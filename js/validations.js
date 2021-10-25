@@ -45,12 +45,12 @@ function nameValidator() {
     let input = fullName.value;
     if (input.length < 6 || input.indexOf(' ') == -1) {
         invalidName.innerHTML = 'The Name must be more than 6 letters and at least have 1 space.';
-        formObj.fullName = 0;
         errorObj.fullName = '<li>' + '-Error in Full Name.' + '</li>';
         counterOk -= 1;
     } else {
         formObj.fullName = '<li>' + 'Full Name: ' + input + '</li>';
         counterOk += 1;
+        errorObj.fullName = null;
     }
 }
 
@@ -67,12 +67,12 @@ function emailValidator() {
     let input = email.value;
     if (input.indexOf('@') == -1 || input.indexOf('.') == -1) {
         invalidEmail.innerHTML = 'Invalid email. It must have @ and at least 1 point.';
-        formObj.email = 0;
         errorObj.email = '<li>' + '-Error in Email.' + '</li>';
         counterOk -= 1;
     } else {
         formObj.email = '<li>' + 'Email: ' + input + '</li>';
         counterOk += 1;
+        errorObj.email = null;
     }
 }
 
@@ -89,18 +89,17 @@ function passwordValidator() {
     let input = password.value;
     if (input.length < 8) {
         invalidPassword.innerHTML = 'The Password must have 8 characters ore more.';
-        formObj.password = 0;
         errorObj.password = '<li>' + '-Error in Password.' + '</li>';
         counterOk -= 1;
     }
     if (input.search(/[a-z]/i) < 0 || input.search(/[0-9]/) < 0) {
         invalidPassword.innerHTML = 'The Password must have letters and numbers.';
-        formObj.password = 0;
         errorObj.password = '<li>' + '-Error in Password.' + '</li>';
         counterOk -= 1;
     } else if (input.length >= 8) {
         formObj.password = '<li>' + 'Password: ' + input + '</li>';
         counterOk += 1;
+        errorObj.password = null;
     }
 }
 
@@ -117,12 +116,12 @@ function confirmValidator() {
     let input = confirmPassword.value;
     if (input != password.value || input === '') {
         invalidConfirm.innerHTML = 'The Passwords do not match.';
-        formObj.confirmPassword = 0;
         errorObj.confirmPassword = '<li>' + '-Error in Confirm Password.' + '</li>';
         counterOk -= 1;
     } else {
         formObj.confirmPassword = '<li>' + 'Confirm Password: ' + input + '</li>';
         counterOk += 1;
+        errorObj.confirmPassword = null;
     }
 }
 
@@ -139,19 +138,18 @@ function ageValidator() {
     let input = parseFloat(age.value);
     if (input < 18) {
         invalidAge.innerHTML = 'The Age must be greater or equal than 18.';
-        formObj.age = 0;
         errorObj.age = '<li>' + '-Error in Age.' + '</li>';
         counterOk -= 1;
     }
     if (!Number.isInteger(input)) {
         invalidAge.innerHTML = 'The Age must be an integer number.';
-        formObj.age = 0;
         errorObj.age = '<li>' + '-Error in Age.' + '</li>';
         counterOk -= 1;
     }
     if (input >= 18 && Number.isInteger(input)){
         formObj.age = '<li>' + 'Age: ' + input + '</li>';
         counterOk += 1;
+        errorObj.age = null;
     }
 }
 
@@ -169,19 +167,18 @@ function phoneValidator() {
     let inputNumber = parseFloat(phone.value);
     if (input.length < 7) {
         invalidPhone.innerHTML = 'The Phone must have at least 7 numbers.';
-        formObj.phone = 0;
         errorObj.phone = '<li>' + '-Error in Phone Number.' + '</li>';
         counterOk -= 1;
     }
     if (isNaN(inputNumber)) {
         invalidPhone.innerHTML = 'Only numbers are allowed.';
-        formObj.phone = 0;
         errorObj.phone = '<li>' + '-Error in Phone Number.' + '</li>';
         counterOk -= 1;
     }
     if (input.length >= 7 && !isNaN(inputNumber)) {
         formObj.phone = '<li>' + 'Phone Number: ' + input + '</li>';
         counterOk += 1;
+        errorObj.phone = null;
     }
 }
 
@@ -198,18 +195,17 @@ function adressValidator() {
     let input = adress.value;
     if (input.length < 5) {
         invalidAdress.innerHTML = 'The Adress must have at least 5 characters.';
-        formObj.adress = 0;
         errorObj.adress = '<li>' + '-Error in Adress.' + '</li>';
         counterOk -= 1;
     }
     if (input.search(/[a-z]/i) < 0 || input.search(/[0-9]/) < 0 || input.indexOf(' ') == -1) {
         invalidAdress.innerHTML = 'The Adress must have letters, numbers and at least 1 space.';
-        formObj.adress = 0;
         errorObj.adress = '<li>' + '-Error in Adress.' + '</li>';
         counterOk -= 1;
     } else if (input.length >= 5) {
         formObj.adress = '<li>' + 'Adress: ' + input + '</li>';
         counterOk += 1;
+        errorObj.adress = null;
     }
 }
 
@@ -226,12 +222,12 @@ function cityValidator() {
     let input = city.value;
     if (input.length < 3) {
         invalidCity.innerHTML = 'The City must have at least 3 characters.';
-        formObj.city = 0;
         errorObj.city = '<li>' + '-Error in City.' + '</li>';
         counterOk -= 1;
     } else {
         formObj.city = '<li>' + 'City: ' + input + '</li>';
         counterOk += 1;
+        errorObj.city = null;
     }
 }
 
@@ -248,12 +244,12 @@ function postcodeValidator() {
     let input = postcode.value;
     if (input.length < 3) {
         invalidPostcode.innerHTML = 'The Postcode must have at least 3 characters.';
-        formObj.postcode = 0;
         errorObj.postcode = '<li>' + '-Error in Postcode.' + '</li>';
         counterOk -= 1;
     } else {
         formObj.postcode = '<li>' + 'Postcode: ' + input + '</li>';
         counterOk += 1;
+        errorObj.postcode = null;
     }
 }
 
@@ -292,7 +288,11 @@ function sendData() {
     + "&id=" + id.value;
     fetch(url)
         .then(function(response) {
-            return response.json();
+            if(response.status === 200) {
+                return response.json();
+            } else {
+                throw Error(response.status);
+            }
         })
         .then(function(data) {
             if (counterOk >= 10) {
@@ -334,9 +334,17 @@ var successModalMsg = document.getElementById('success-msg');
 var failModal = document.getElementById('fail-modal');
 var failModalMsg = document.getElementById('fail-msg');
 function showModal() {
-    // if (counterOk < 10) {
-    //     return alert('Please, complete the form.');
-    // }
+    nameValidator();
+    emailValidator();
+    passwordValidator();
+    confirmValidator();
+    ageValidator();
+    phoneValidator();
+    adressValidator();
+    cityValidator();
+    postcodeValidator();
+    idValidator();
+    var valuesOfFormObj = Object.values(formObj);
     var valuesOfErrorObj = Object.values(errorObj);
 		valuesOfErrorObj.forEach(element => {
 			if (element !== null) {
@@ -347,16 +355,23 @@ function showModal() {
         modalHidden[0].classList.remove('modal-hidden');
         successModal.style.display = 'none';
         failModal.style.display = 'block';
-        failModalMsg.innerHTML = '<ul class="modal-list">' + valuesOfErrorObj + '</ul>';
+        failModalMsg.innerHTML = '<ul class="modal-list">' + valuesOfErrorObj.join('') + '</ul>';
+		valuesOfErrorObj.forEach(element => {
+			if (element === null) {
+				return error = false;
+			}
+		});
     } else {
         modalHidden[0].classList.remove('modal-hidden');
         failModal.style.display = 'none';
+        failModalMsg.style.display = 'none';
         successModal.style.display = 'block';
-        successModalMsg.innerHTML = '<ul class="modal-list">'
-        + formObj.fullName + formObj.email + formObj.password + formObj.confirmPassword
-        + formObj.age + formObj.phone + formObj.adress + formObj.city + formObj.postcode + formObj.id
-        + '</ul>';
-        // clearOption();
+        if (valuesOfFormObj != null) {
+            successModalMsg.innerHTML = '<ul class="modal-list">'
+            + formObj.fullName + formObj.email + formObj.password + formObj.confirmPassword
+            + formObj.age + formObj.phone + formObj.adress + formObj.city + formObj.postcode + formObj.id
+            + '</ul>';
+        }
     }
 }
 
@@ -383,6 +398,9 @@ window.onload = function() {
         city.value = localStorage.getItem('city');
         postcode.value = localStorage.getItem('postcode');
         id.value = localStorage.getItem('id');
+        // button.addEventListener('click', () => alert('You are already subscribed.'));
+        // successModalMsg.style.display = 'none';
+        // clearOption();
     }
 }
 
