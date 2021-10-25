@@ -6,6 +6,20 @@ var concatenateOk = '';
 var counterOk = 0;
 var concatenateErrors = '';
 
+// Principal object
+var formObj = {
+    fullName = null,
+    email = null,
+    password = null,
+    confirmPassword = null,
+    age = null,
+    phone = null,
+    adress = null,
+    city = null,
+    postcode = null,
+    id = null
+}
+
 // Full Name
 var fullName = document.querySelector('input[id="name"]');
 var invalidName = document.getElementById('invalidName');
@@ -248,7 +262,7 @@ function sendData() {
             console.log(data);
         })
         .catch(function(error) {
-            showError = 'Error status: ' + error;
+            showError = error;
             var newElement = document.createElement('p');
             var newContent = document.createTextNode(showError);
             newElement.appendChild(newContent);
@@ -323,6 +337,9 @@ window.onload = function() {
         // clearOption();
     }
 }
+
+// var buttonToChange = document.getElementById('send');
+// buttonToChange.addEventListener('click', () => alert('You are already subscribed.'));
 
 // Clear Option
 // function clearOption() {
