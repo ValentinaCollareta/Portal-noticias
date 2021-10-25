@@ -1,7 +1,8 @@
 // FORM VALIDATIONS JS
 
-// Counter
+// Counter && error
 var counterOk = 0;
+var error = false;
 
 // Principal object
 var formObj = {
@@ -38,6 +39,7 @@ fullName.addEventListener('focus', focusName);
 fullName.addEventListener('blur', nameValidator);
 function focusName() {
     invalidName.innerHTML = '';
+    error = false;
 }
 function nameValidator() {
     let input = fullName.value;
@@ -45,6 +47,7 @@ function nameValidator() {
         invalidName.innerHTML = 'The Name must be more than 6 letters and at least have 1 space.';
         formObj.fullName = 0;
         errorObj.fullName = '<li>' + '-Error in Full Name.' + '</li>';
+        counterOk -= 1;
     } else {
         formObj.fullName = '<li>' + 'Full Name: ' + input + '</li>';
         counterOk += 1;
@@ -58,6 +61,7 @@ email.addEventListener('focus', focusEmail);
 email.addEventListener('blur', emailValidator);
 function focusEmail() {
     invalidEmail.innerHTML = '';
+    error = false;
 }
 function emailValidator() {
     let input = email.value;
@@ -65,6 +69,7 @@ function emailValidator() {
         invalidEmail.innerHTML = 'Invalid email. It must have @ and at least 1 point.';
         formObj.email = 0;
         errorObj.email = '<li>' + '-Error in Email.' + '</li>';
+        counterOk -= 1;
     } else {
         formObj.email = '<li>' + 'Email: ' + input + '</li>';
         counterOk += 1;
@@ -78,6 +83,7 @@ password.addEventListener('focus', focusPassword);
 password.addEventListener('blur', passwordValidator);
 function focusPassword() {
     invalidPassword.innerHTML = '';
+    error = false;
 }
 function passwordValidator() {
     let input = password.value;
@@ -85,11 +91,13 @@ function passwordValidator() {
         invalidPassword.innerHTML = 'The Password must have 8 characters ore more.';
         formObj.password = 0;
         errorObj.password = '<li>' + '-Error in Password.' + '</li>';
+        counterOk -= 1;
     }
     if (input.search(/[a-z]/i) < 0 || input.search(/[0-9]/) < 0) {
         invalidPassword.innerHTML = 'The Password must have letters and numbers.';
         formObj.password = 0;
         errorObj.password = '<li>' + '-Error in Password.' + '</li>';
+        counterOk -= 1;
     } else if (input.length >= 8) {
         formObj.password = '<li>' + 'Password: ' + input + '</li>';
         counterOk += 1;
@@ -103,6 +111,7 @@ confirmPassword.addEventListener('focus', focusConfirm);
 confirmPassword.addEventListener('blur', confirmValidator);
 function focusConfirm() {
     invalidConfirm.innerHTML = '';
+    error = false;
 }
 function confirmValidator() {
     let input = confirmPassword.value;
@@ -110,6 +119,7 @@ function confirmValidator() {
         invalidConfirm.innerHTML = 'The Passwords do not match.';
         formObj.confirmPassword = 0;
         errorObj.confirmPassword = '<li>' + '-Error in Confirm Password.' + '</li>';
+        counterOk -= 1;
     } else {
         formObj.confirmPassword = '<li>' + 'Confirm Password: ' + input + '</li>';
         counterOk += 1;
@@ -123,6 +133,7 @@ age.addEventListener('focus', focusAge);
 age.addEventListener('blur', ageValidator);
 function focusAge() {
     invalidAge.innerHTML = '';
+    error = false;
 }
 function ageValidator() {
     let input = parseFloat(age.value);
@@ -130,11 +141,13 @@ function ageValidator() {
         invalidAge.innerHTML = 'The Age must be greater or equal than 18.';
         formObj.age = 0;
         errorObj.age = '<li>' + '-Error in Age.' + '</li>';
+        counterOk -= 1;
     }
     if (!Number.isInteger(input)) {
         invalidAge.innerHTML = 'The Age must be an integer number.';
         formObj.age = 0;
         errorObj.age = '<li>' + '-Error in Age.' + '</li>';
+        counterOk -= 1;
     }
     if (input >= 18 && Number.isInteger(input)){
         formObj.age = '<li>' + 'Age: ' + input + '</li>';
@@ -149,6 +162,7 @@ phone.addEventListener('focus', focusPhone);
 phone.addEventListener('blur', phoneValidator);
 function focusPhone() {
     invalidPhone.innerHTML = '';
+    error = false;
 }
 function phoneValidator() {
     let input = phone.value;
@@ -157,11 +171,13 @@ function phoneValidator() {
         invalidPhone.innerHTML = 'The Phone must have at least 7 numbers.';
         formObj.phone = 0;
         errorObj.phone = '<li>' + '-Error in Phone Number.' + '</li>';
+        counterOk -= 1;
     }
     if (isNaN(inputNumber)) {
         invalidPhone.innerHTML = 'Only numbers are allowed.';
         formObj.phone = 0;
         errorObj.phone = '<li>' + '-Error in Phone Number.' + '</li>';
+        counterOk -= 1;
     }
     if (input.length >= 7 && !isNaN(inputNumber)) {
         formObj.phone = '<li>' + 'Phone Number: ' + input + '</li>';
@@ -176,6 +192,7 @@ adress.addEventListener('focus', focusAdress);
 adress.addEventListener('blur', adressValidator);
 function focusAdress() {
     invalidAdress.innerHTML = '';
+    error = false;
 }
 function adressValidator() {
     let input = adress.value;
@@ -183,11 +200,13 @@ function adressValidator() {
         invalidAdress.innerHTML = 'The Adress must have at least 5 characters.';
         formObj.adress = 0;
         errorObj.adress = '<li>' + '-Error in Adress.' + '</li>';
+        counterOk -= 1;
     }
     if (input.search(/[a-z]/i) < 0 || input.search(/[0-9]/) < 0 || input.indexOf(' ') == -1) {
         invalidAdress.innerHTML = 'The Adress must have letters, numbers and at least 1 space.';
         formObj.adress = 0;
         errorObj.adress = '<li>' + '-Error in Adress.' + '</li>';
+        counterOk -= 1;
     } else if (input.length >= 5) {
         formObj.adress = '<li>' + 'Adress: ' + input + '</li>';
         counterOk += 1;
@@ -201,6 +220,7 @@ city.addEventListener('focus', focusCity);
 city.addEventListener('blur', cityValidator);
 function focusCity() {
     invalidCity.innerHTML = '';
+    error = false;
 }
 function cityValidator() {
     let input = city.value;
@@ -208,6 +228,7 @@ function cityValidator() {
         invalidCity.innerHTML = 'The City must have at least 3 characters.';
         formObj.city = 0;
         errorObj.city = '<li>' + '-Error in City.' + '</li>';
+        counterOk -= 1;
     } else {
         formObj.city = '<li>' + 'City: ' + input + '</li>';
         counterOk += 1;
@@ -221,6 +242,7 @@ postcode.addEventListener('focus', focusPost);
 postcode.addEventListener('blur', postcodeValidator);
 function focusPost() {
     invalidPostcode.innerHTML = '';
+    error = false;
 }
 function postcodeValidator() {
     let input = postcode.value;
@@ -228,6 +250,7 @@ function postcodeValidator() {
         invalidPostcode.innerHTML = 'The Postcode must have at least 3 characters.';
         formObj.postcode = 0;
         errorObj.postcode = '<li>' + '-Error in Postcode.' + '</li>';
+        counterOk -= 1;
     } else {
         formObj.postcode = '<li>' + 'Postcode: ' + input + '</li>';
         counterOk += 1;
@@ -247,10 +270,12 @@ function idValidator() {
     if (input.length >= 7 && input.length <=8) {
         formObj.id = '<li>' + 'ID: ' + input + '</li>';
         counterOk += 1;
+        errorObj.id = null;
     } else {
         invalidId.innerHTML = 'The Id must have 7 or 8 numbers.';
         formObj.id = '-Error in Id: The Id must have 7 or 8 numbers.';
-        errorObj.id = '<li>' + formObj.id + '</li>';
+        errorObj.id = '<li>' + '-Error in ID.' + '</li>';
+        counterOk -= 1;
     }
 }
 
@@ -270,8 +295,10 @@ function sendData() {
             return response.json();
         })
         .then(function(data) {
-            setData();
-            console.log(data);
+            if (counterOk >= 10) {
+                setData();
+                console.log(data);
+            }
         })
         .catch(function(error) {
             showError = error;
@@ -306,16 +333,21 @@ var successModal = document.getElementById('success-modal');
 var successModalMsg = document.getElementById('success-msg');
 var failModal = document.getElementById('fail-modal');
 var failModalMsg = document.getElementById('fail-msg');
-var valuesOfErrorObj = Object.values(errorObj);
 function showModal() {
     // if (counterOk < 10) {
     //     return alert('Please, complete the form.');
     // }
-    if (errorObj.fullName != null) {
+    var valuesOfErrorObj = Object.values(errorObj);
+		valuesOfErrorObj.forEach(element => {
+			if (element !== null) {
+				return error = true;
+			}
+		});
+    if (error === true) {
         modalHidden[0].classList.remove('modal-hidden');
         successModal.style.display = 'none';
         failModal.style.display = 'block';
-        failModalMsg.innerHTML = '<ul class="modal-list">' + 'hola' + '</ul>';
+        failModalMsg.innerHTML = '<ul class="modal-list">' + valuesOfErrorObj + '</ul>';
     } else {
         modalHidden[0].classList.remove('modal-hidden');
         failModal.style.display = 'none';
