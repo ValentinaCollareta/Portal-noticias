@@ -252,6 +252,7 @@ body {
     border-style: none;
     background-color: #000000;
     color: #ffffff;
+    cursor: pointer;
 }
 #footer-page {
     background-color: #000000;
