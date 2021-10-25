@@ -3,6 +3,7 @@
 // Counter && error
 var counterOk = 0;
 var error = false;
+var res = true;
 
 // Principal object
 var formObj = {
@@ -47,6 +48,7 @@ function nameValidator() {
         invalidName.innerHTML = 'The Name must be more than 6 letters and at least have 1 space.';
         errorObj.fullName = '<li>' + '-Error in Full Name.' + '</li>';
         counterOk -= 1;
+        res = false;
     } else {
         formObj.fullName = '<li>' + 'Full Name: ' + input + '</li>';
         counterOk += 1;
@@ -69,6 +71,7 @@ function emailValidator() {
         invalidEmail.innerHTML = 'Invalid email. It must have @ and at least 1 point.';
         errorObj.email = '<li>' + '-Error in Email.' + '</li>';
         counterOk -= 1;
+        res = false;
     } else {
         formObj.email = '<li>' + 'Email: ' + input + '</li>';
         counterOk += 1;
@@ -91,11 +94,13 @@ function passwordValidator() {
         invalidPassword.innerHTML = 'The Password must have 8 characters ore more.';
         errorObj.password = '<li>' + '-Error in Password.' + '</li>';
         counterOk -= 1;
+        res = false;
     }
     if (input.search(/[a-z]/i) < 0 || input.search(/[0-9]/) < 0) {
         invalidPassword.innerHTML = 'The Password must have letters and numbers.';
         errorObj.password = '<li>' + '-Error in Password.' + '</li>';
         counterOk -= 1;
+        res = false;
     } else if (input.length >= 8) {
         formObj.password = '<li>' + 'Password: ' + input + '</li>';
         counterOk += 1;
@@ -118,6 +123,7 @@ function confirmValidator() {
         invalidConfirm.innerHTML = 'The Passwords do not match.';
         errorObj.confirmPassword = '<li>' + '-Error in Confirm Password.' + '</li>';
         counterOk -= 1;
+        res = false;
     } else {
         formObj.confirmPassword = '<li>' + 'Confirm Password: ' + input + '</li>';
         counterOk += 1;
@@ -140,11 +146,13 @@ function ageValidator() {
         invalidAge.innerHTML = 'The Age must be greater or equal than 18.';
         errorObj.age = '<li>' + '-Error in Age.' + '</li>';
         counterOk -= 1;
+        res = false;
     }
     if (!Number.isInteger(input)) {
         invalidAge.innerHTML = 'The Age must be an integer number.';
         errorObj.age = '<li>' + '-Error in Age.' + '</li>';
         counterOk -= 1;
+        res = false;
     }
     if (input >= 18 && Number.isInteger(input)){
         formObj.age = '<li>' + 'Age: ' + input + '</li>';
@@ -169,11 +177,13 @@ function phoneValidator() {
         invalidPhone.innerHTML = 'The Phone must have at least 7 numbers.';
         errorObj.phone = '<li>' + '-Error in Phone Number.' + '</li>';
         counterOk -= 1;
+        res = false;
     }
     if (isNaN(inputNumber)) {
         invalidPhone.innerHTML = 'Only numbers are allowed.';
         errorObj.phone = '<li>' + '-Error in Phone Number.' + '</li>';
         counterOk -= 1;
+        res = false;
     }
     if (input.length >= 7 && !isNaN(inputNumber)) {
         formObj.phone = '<li>' + 'Phone Number: ' + input + '</li>';
@@ -197,11 +207,13 @@ function adressValidator() {
         invalidAdress.innerHTML = 'The Adress must have at least 5 characters.';
         errorObj.adress = '<li>' + '-Error in Adress.' + '</li>';
         counterOk -= 1;
+        res = false;
     }
     if (input.search(/[a-z]/i) < 0 || input.search(/[0-9]/) < 0 || input.indexOf(' ') == -1) {
         invalidAdress.innerHTML = 'The Adress must have letters, numbers and at least 1 space.';
         errorObj.adress = '<li>' + '-Error in Adress.' + '</li>';
         counterOk -= 1;
+        res = false;
     } else if (input.length >= 5) {
         formObj.adress = '<li>' + 'Adress: ' + input + '</li>';
         counterOk += 1;
@@ -224,6 +236,7 @@ function cityValidator() {
         invalidCity.innerHTML = 'The City must have at least 3 characters.';
         errorObj.city = '<li>' + '-Error in City.' + '</li>';
         counterOk -= 1;
+        res = false;
     } else {
         formObj.city = '<li>' + 'City: ' + input + '</li>';
         counterOk += 1;
@@ -246,6 +259,7 @@ function postcodeValidator() {
         invalidPostcode.innerHTML = 'The Postcode must have at least 3 characters.';
         errorObj.postcode = '<li>' + '-Error in Postcode.' + '</li>';
         counterOk -= 1;
+        res = false;
     } else {
         formObj.postcode = '<li>' + 'Postcode: ' + input + '</li>';
         counterOk += 1;
@@ -272,6 +286,7 @@ function idValidator() {
         formObj.id = '-Error in Id: The Id must have 7 or 8 numbers.';
         errorObj.id = '<li>' + '-Error in ID.' + '</li>';
         counterOk -= 1;
+        res = false;
     }
 }
 
@@ -295,7 +310,7 @@ function sendData() {
             }
         })
         .then(function(data) {
-            if (counterOk >= 10) {
+            if (res === true) {
                 setData();
                 console.log(data);
             }
@@ -362,6 +377,7 @@ function showModal() {
 			}
 		});
     } else {
+        res = true;
         modalHidden[0].classList.remove('modal-hidden');
         failModal.style.display = 'none';
         failModalMsg.style.display = 'none';
