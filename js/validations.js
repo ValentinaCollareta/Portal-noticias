@@ -320,8 +320,17 @@ window.onload = function() {
         city.value = localStorage.getItem('city');
         postcode.value = localStorage.getItem('postcode');
         id.value = localStorage.getItem('id');
+        // clearOption();
     }
 }
+
+// Clear Option
+// function clearOption() {
+//     var buttonToChange = document.getElementById('send');
+//     buttonToChange.innerHTML = 'Clear values';
+//     buttonToChange.addEventListener('click', () => localStorage.clear());
+//     buttonToChange.addEventListener('click', () => location.reload());
+// }
 
 //BONUS
 var bonus = document.getElementById('hello');
