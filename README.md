@@ -1,5 +1,5 @@
 # Portal-noticias
-## Weekly challenge 02
+## Weekly challenge 03
 :small_orange_diamond: For this week, we had to create the front page of an invented newspaper. The most difficult part was use CSS FlexBox to make a full Responsive Design & "mobile first", following the Website Layout concept for w3school.
 
 **You can see the result here**
