@@ -1,140 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/media-query.css">
-    <link rel="stylesheet" type="text/css" href="css/modal.css">
-    <link rel="icon" type="image/png" href="img/favicon.ico" sizes="16x16">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Scheherazade+New&display=swap" rel="stylesheet">
-    <title>Subscription to Diario Andrómeda</title>
-</head>
-<body>
-    <div id="header-nav">
-        <div id="logo-search">
-            <header>
-                <img id="logo" src="img/logo.png" alt="Diario Andrómeda">
-            </header>
-            <div id="search">
-                <img id="search-icon" src="img/icon-search.png" alt="Search">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/media-query.css">
+        <link rel="stylesheet" type="text/css" href="css/modal.css">
+        <link rel="icon" type="image/png" href="img/favicon.ico" sizes="16x16">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Scheherazade+New&display=swap" rel="stylesheet">
+        <title>Subscription to Diario Andrómeda</title>
+    </head>
+    <body>
+        <div id="header-nav">
+            <div id="logo-search">
+                <header>
+                    <img id="logo" src="img/logo.png" alt="Diario Andrómeda">
+                </header>
+                <div id="search">
+                    <img id="search-icon" src="img/icon-search.png" alt="Search">
+                </div>
+            </div>
+            <nav>
+                <img id="nav-icon" src="img/icon-menu.png" alt="Search">
+                <div id="navbar-full">
+                    <a href="index.html">Home</a>
+                    <a href="#">Contact us</a>
+                    <a href="subscription.html">Subscription</a>
+                    <a id="help" href="#">Help</a>
+                </div>
+            </nav>
+        </div>
+        <div id="sus-topic">
+            <h2>Subscribe to Diario Andrómeda</h2>
+        </div>
+        <form id="form-div">
+            <h1 id="hello">Hello !</h1>
+            <div id="label-input-div">
+                <div class="label-input-div">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" class="suscribe-input" name="name">
+                    <div id="invalidName" class="invalid"></div>
+                </div>
+                <div class="label-input-div">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" class="suscribe-input" name="email">
+                    <div id="invalidEmail" class="invalid"></div>
+                </div>
+                <div class="label-input-div">
+                    <label for="password">Password:</label>
+                    <input type="text" id="password" class="suscribe-input" name="password">
+                    <div id="invalidPassword" class="invalid"></div>
+                </div>
+                <div class="label-input-div">
+                    <label for="confirm">Confirm password:</label>
+                    <input type="text" id="confirm" class="suscribe-input" name="confirm">
+                    <div id="invalidConfirm" class="invalid"></div>
+                </div>
+                <div class="label-input-div">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" class="suscribe-input" name="age">
+                    <div id="invalidAge" class="invalid"></div>
+                </div>
+                <div class="label-input-div">
+                    <label for="phone">Phone Number:</label>
+                    <input type="number" id="phone" class="suscribe-input" name="phone">
+                    <div id="invalidPhone" class="invalid"></div>
+                </div>
+                <div class="label-input-div">
+                    <label for="adress">Adress:</label>
+                    <input type="text" id="adress" class="suscribe-input" name="adress">
+                    <div id="invalidAdress" class="invalid"></div>
+                </div>
+                <div class="label-input-div">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" class="suscribe-input" name="city">
+                    <div id="invalidCity" class="invalid"></div>
+                </div>
+                <div class="label-input-div">
+                    <label for="postcode">Postcode:</label>
+                    <input type="number" id="postcode" class="suscribe-input" name="postcode">
+                    <div id="invalidPostcode" class="invalid"></div>
+                </div>
+                <div class="label-input-div">
+                    <label for="id">Id:</label>
+                    <input type="number" id="id" class="suscribe-input" name="id">
+                    <div id="invalidId" class="invalid"></div>
+                </div>
+            </div>
+            <div id="button">
+                <button id="send" type="button">Send</button>
+            </div>
+        </form>
+        <div id="modal" class="modal-hidden">
+            <div id="success-modal" class="success-modal">
+                <span class="close-modal">x</span>
+                <p class="p-modal">Congrats! You are now subscribed to Diario Andrómeda :)</p>
+                <div id="success-msg"></div>
+            </div>
+            <div id="fail-modal" class="fail-modal">
+                <span class="close-modal">x</span>
+                <p class="p-modal">I'm sorry, subscription failed to load :(</p>
+                <div id="fail-msg"></div>
             </div>
         </div>
-        <nav>
-            <img id="nav-icon" src="img/icon-menu.png" alt="Search">
-            <div id="navbar-full">
-                <a href="index.html">Home</a>
-                <a href="#">Contact us</a>
-                <a href="subscription.html">Subscription</a>
-                <a id="help" href="#">Help</a>
+        <footer id="footer-page">
+            <div id="back-to-top">
+                <a id="back-a" href="#">↑ Back To Top ↑</a>
             </div>
-        </nav>
-    </div>
-    <div id="sus-topic">
-        <h2>Subscribe to Diario Andrómeda</h2>
-    </div>
-    <form id="form-div">
-        <h1 id="hello">Hello !</h1>
-        <div id="label-input-div">
-            <div class="label-input-div">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" class="suscribe-input" name="name">
-                <div id="invalidName" class="invalid"></div>
+            <div id="ul-div">
+                <ul class="footer-list">
+                    <li>Contact us</li>
+                    <li>Complaints & corrections</li>
+                    <li>Work for us</li>
+                    <li>Privacy settings</li>
+                    <li>Privacy policy</li>
+                    <li>Cookie policy</li>
+                    <li>Terms & conditions</li>
+                    <li>Help</li>
+                </ul>
+                <ul class="footer-list">
+                    <li>All topics</li>
+                    <li>All writers</li>
+                    <li>Digital newspaper archive</li>
+                    <li>Advertise with us</li>
+                    <li>Newsletters</li>
+                </ul>
             </div>
-            <div class="label-input-div">
-                <label for="email">Email:</label>
-                <input type="text" id="email" class="suscribe-input" name="email">
-                <div id="invalidEmail" class="invalid"></div>
+            <div id="social-media">
+                <div id="facebook"></div>
+                <div id="instagram"></div>
+                <div id="twitter"></div>
+                <div id="linkedin"></div>
             </div>
-            <div class="label-input-div">
-                <label for="password">Password:</label>
-                <input type="text" id="password" class="suscribe-input" name="password">
-                <div id="invalidPassword" class="invalid"></div>
-            </div>
-            <div class="label-input-div">
-                <label for="confirm">Confirm password:</label>
-                <input type="text" id="confirm" class="suscribe-input" name="confirm">
-                <div id="invalidConfirm" class="invalid"></div>
-            </div>
-            <div class="label-input-div">
-                <label for="age">Age:</label>
-                <input type="number" id="age" class="suscribe-input" name="age">
-                <div id="invalidAge" class="invalid"></div>
-            </div>
-            <div class="label-input-div">
-                <label for="phone">Phone Number:</label>
-                <input type="number" id="phone" class="suscribe-input" name="phone">
-                <div id="invalidPhone" class="invalid"></div>
-            </div>
-            <div class="label-input-div">
-                <label for="adress">Adress:</label>
-                <input type="text" id="adress" class="suscribe-input" name="adress">
-                <div id="invalidAdress" class="invalid"></div>
-            </div>
-            <div class="label-input-div">
-                <label for="city">City:</label>
-                <input type="text" id="city" class="suscribe-input" name="city">
-                <div id="invalidCity" class="invalid"></div>
-            </div>
-            <div class="label-input-div">
-                <label for="postcode">Postcode:</label>
-                <input type="number" id="postcode" class="suscribe-input" name="postcode">
-                <div id="invalidPostcode" class="invalid"></div>
-            </div>
-            <div class="label-input-div">
-                <label for="id">Id:</label>
-                <input type="number" id="id" class="suscribe-input" name="id">
-                <div id="invalidId" class="invalid"></div>
-            </div>
-        </div>
-        <div id="button">
-            <button id="send" type="button">Send</button>
-        </div>
-    </form>
-    <div id="modal" class="modal-hidden">
-        <div id="success-modal" class="success-modal">
-            <span class="close-modal">x</span>
-            <p class="p-modal">Congrats! You are now subscribed to Diario Andrómeda :)</p>
-            <div id="success-msg"></div>
-        </div>
-        <div id="fail-modal" class="fail-modal">
-            <span class="close-modal">x</span>
-            <p class="p-modal">I'm sorry, subscription failed to load :(</p>
-            <div id="fail-msg"></div>
-        </div>
-    </div>
-    <footer id="footer-page">
-        <div id="back-to-top">
-            <a id="back-a" href="#">↑ Back To Top ↑</a>
-        </div>
-        <div id="ul-div">
-            <ul class="footer-list">
-                <li>Contact us</li>
-                <li>Complaints & corrections</li>
-                <li>Work for us</li>
-                <li>Privacy settings</li>
-                <li>Privacy policy</li>
-                <li>Cookie policy</li>
-                <li>Terms & conditions</li>
-                <li>Help</li>
-            </ul>
-            <ul class="footer-list">
-                <li>All topics</li>
-                <li>All writers</li>
-                <li>Digital newspaper archive</li>
-                <li>Advertise with us</li>
-                <li>Newsletters</li>
-            </ul>
-        </div>
-        <div id="social-media">
-            <div id="facebook"></div>
-            <div id="instagram"></div>
-            <div id="twitter"></div>
-            <div id="linkedin"></div>
-        </div>
-    </footer>
-    <script src="js/validations.js"></script>
-</body>
+        </footer>
+        <script src="js/validations.js"></script>
+    </body>
 </html>
