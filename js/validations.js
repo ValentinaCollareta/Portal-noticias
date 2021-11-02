@@ -439,11 +439,11 @@ function clearOption() {
 }
 
 //BONUS
-var bonus = document.getElementById('hello');
+var bonus = document.getElementsByTagName("h1");
 fullName.addEventListener('keyup', completeHello);
 // We have to use 'keydown' but I added 'keyup' because if I didn't do that the
 // last character I typed in the Full Name Input was not showing.
 fullName.addEventListener('keydown', completeHello);
 function completeHello(e) {
-    bonus.innerHTML = 'Hello ' + e.target.value + '!';
+    bonus[0].innerHTML = 'Hello ' + e.target.value + '!';
 }
