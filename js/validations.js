@@ -13,7 +13,7 @@ var formObj = {
     confirmPassword : null,
     age : null,
     phone : null,
-    adress : null,
+    address : null,
     city : null,
     postcode : null,
     id : null
@@ -27,7 +27,7 @@ var errorObj = {
     confirmPassword : null,
     age : null,
     phone : null,
-    adress : null,
+    address : null,
     city : null,
     postcode : null,
     id : null
@@ -192,32 +192,32 @@ function phoneValidator() {
     }
 }
 
-// Adress
-var adress = document.querySelector('input[id="adress"]');
-var invalidAdress = document.getElementById('invalidAdress');
-adress.addEventListener('focus', focusAdress);
-adress.addEventListener('blur', adressValidator);
-function focusAdress() {
-    invalidAdress.innerHTML = '';
+// Address
+var address = document.querySelector('input[id="address"]');
+var invalidAddress = document.getElementById('invalidAddress');
+address.addEventListener('focus', focusAddress);
+address.addEventListener('blur', addressValidator);
+function focusAddress() {
+    invalidAddress.innerHTML = '';
     error = false;
 }
-function adressValidator() {
-    let input = adress.value;
+function addressValidator() {
+    let input = address.value;
     if (input.length < 5) {
-        invalidAdress.innerHTML = 'The Adress must have at least 5 characters.';
-        errorObj.adress = '<li>' + '-Error in Adress.' + '</li>';
+        invalidAddress.innerHTML = 'The Address must have at least 5 characters.';
+        errorObj.address = '<li>' + '-Error in Address.' + '</li>';
         counterOk -= 1;
         res = false;
     }
     if (input.search(/[a-z]/i) < 0 || input.search(/[0-9]/) < 0 || input.indexOf(' ') == -1) {
-        invalidAdress.innerHTML = 'The Adress must have letters, numbers and at least 1 space.';
-        errorObj.adress = '<li>' + '-Error in Adress.' + '</li>';
+        invalidAddress.innerHTML = 'The Address must have letters, numbers and at least 1 space.';
+        errorObj.address = '<li>' + '-Error in Address.' + '</li>';
         counterOk -= 1;
         res = false;
     } else if (input.length >= 5) {
-        formObj.adress = '<li>' + 'Adress: ' + input + '</li>';
+        formObj.address = '<li>' + 'Address: ' + input + '</li>';
         counterOk += 1;
-        errorObj.adress = null;
+        errorObj.address = null;
     }
 }
 
@@ -299,7 +299,7 @@ function sendData() {
     showModal();
     var url = "https://curso-dev-2021.herokuapp.com/newsletter?name=" + fullName.value + "&email=" + email.value
     + "&password=" + password.value + "&confirmPassword=" + confirmPassword.value + "&age=" + age.value
-    + "&phone=" + phone.value + "&adress=" + adress.value + "&city=" + city.value + "&postcode=" + postcode.value
+    + "&phone=" + phone.value + "&address=" + address.value + "&city=" + city.value + "&postcode=" + postcode.value
     + "&id=" + id.value;
     fetch(url)
         .then(function(response) {
@@ -335,7 +335,7 @@ function setData() {
     localStorage.setItem('confirmPassword', confirmPassword.value);
     localStorage.setItem('age', age.value);
     localStorage.setItem('phone', phone.value);
-    localStorage.setItem('adress', adress.value);
+    localStorage.setItem('address', address.value);
     localStorage.setItem('city', city.value);
     localStorage.setItem('postcode', postcode.value);
     localStorage.setItem('id', id.value);
@@ -355,7 +355,7 @@ function showModal() {
     confirmValidator();
     ageValidator();
     phoneValidator();
-    adressValidator();
+    addressValidator();
     cityValidator();
     postcodeValidator();
     idValidator();
@@ -388,7 +388,7 @@ function showModal() {
         if (valuesOfFormObj != null) {
             successModalMsg.innerHTML = '<ul class="modal-list">'
             + formObj.fullName + formObj.email + formObj.password + formObj.confirmPassword
-            + formObj.age + formObj.phone + formObj.adress + formObj.city + formObj.postcode + formObj.id
+            + formObj.age + formObj.phone + formObj.address + formObj.city + formObj.postcode + formObj.id
             + '</ul>';
         }
     }
